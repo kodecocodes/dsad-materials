@@ -14,7 +14,10 @@ void main() {
   final element = stack.pop();
   print('Popped: $element');
 
-  final list = ['S', 'M', 'O', 'K', 'E'];
+  print(stack.peek);
+  print(stack.isEmpty);
+
+  const list = ['S', 'M', 'O', 'K', 'E'];
   final smokeStack = Stack.of(list);
   print(smokeStack);
   print('Popped: ${smokeStack.pop()}');
