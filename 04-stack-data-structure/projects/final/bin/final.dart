@@ -16,6 +16,7 @@ void main() {
 
   print(stack.peek);
   print(stack.isEmpty);
+  print(stack.isNotEmpty);
 
   const list = ['S', 'M', 'O', 'K', 'E'];
   final smokeStack = Stack.of(list);
