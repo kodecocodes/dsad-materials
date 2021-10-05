@@ -13,7 +13,7 @@ class Node<T> {
   }
 }
 
-class LinkedList<E> {
+class LinkedList<E> extends Iterable<E> {
   Node<E>? head;
   Node<E>? tail;
 
@@ -50,11 +50,74 @@ class LinkedList<E> {
     return node.next!;
   }
 
+  E? pop() {
+    final value = head?.value;
+    head = head?.next;
+    if (isEmpty) {
+      tail = null;
+    }
+    return value;
+  }
+
+  E? removeLast() {
+    if (isEmpty) return null;
+    if (head!.next == null) return pop();
+
+    var previous = head;
+    var current = head;
+    while (current!.next != null) {
+      previous = current;
+      current = current.next;
+    }
+
+    previous!.next = null;
+    tail = previous;
+    return current.value;
+  }
+
+  E? removeAfter(Node<E> node) {
+    final removedValue = node.next?.value;
+    if (node.next == tail) {
+      tail = node;
+    }
+    node.next = node.next?.next;
+    return removedValue;
+  }
+
   bool get isEmpty => head == null;
+
+  @override
+  Iterator<E> get iterator => _LinkedListIterator(this);
 
   @override
   String toString() {
     if (isEmpty) return 'Empty list';
     return head.toString();
+  }
+}
+
+class _LinkedListIterator<E> implements Iterator<E> {
+  _LinkedListIterator(LinkedList<E> list) : _list = list;
+  final LinkedList<E> _list;
+
+  Node<E>? _currentNode;
+
+  @override
+  E get current => _currentNode!.value;
+
+  bool _firstPass = true;
+
+  @override
+  bool moveNext() {
+    if (_list.isEmpty) return false;
+
+    if (_firstPass) {
+      _currentNode = _list.head;
+      _firstPass = false;
+    } else {
+      _currentNode = _currentNode?.next;
+    }
+
+    return _currentNode != null;
   }
 }

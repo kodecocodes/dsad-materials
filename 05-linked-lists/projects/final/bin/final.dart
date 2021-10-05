@@ -4,13 +4,17 @@
 import 'linked_list.dart';
 
 void main() {
-  nodes();
-  push();
-  append();
-  insertAfter();
+  nodesExample();
+  pushExample();
+  appendExample();
+  insertAfterExample();
+  popExample();
+  removeLastExample();
+  removeAfterExample();
+  makingListIterable();
 }
 
-void nodes() {
+void nodesExample() {
   final node1 = Node(value: 1);
   final node2 = Node(value: 2);
   final node3 = Node(value: 3);
@@ -21,7 +25,7 @@ void nodes() {
   print(node1);
 }
 
-void push() {
+void pushExample() {
   final list = LinkedList<int>();
   list.push(3);
   list.push(2);
@@ -30,7 +34,7 @@ void push() {
   print(list);
 }
 
-void append() {
+void appendExample() {
   final list = LinkedList<int>();
   list.append(1);
   list.append(2);
@@ -39,7 +43,7 @@ void append() {
   print(list);
 }
 
-void insertAfter() {
+void insertAfterExample() {
   final list = LinkedList<int>();
   list.push(3);
   list.push(2);
@@ -51,4 +55,63 @@ void insertAfter() {
   list.insertAfter(middleNode, 42);
 
   print('After:  $list');
+}
+
+void popExample() {
+  final list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  print('Before: $list');
+
+  final poppedValue = list.pop();
+
+  print('After:  $list');
+  print('Popped value: $poppedValue');
+}
+
+void removeLastExample() {
+  final list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  print('Before: $list');
+
+  final removedValue = list.removeLast();
+
+  print('After:  $list');
+  print('Removed value: $removedValue');
+}
+
+void removeAfterExample() {
+  final list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  print('Before: $list');
+
+  final firstNode = list.nodeAt(0);
+  final removedValue = list.removeAfter(firstNode!);
+
+  print('After:  $list');
+  print('Removed value: $removedValue');
+}
+
+void makingListIterable() {
+  final numbers = [1, 2, 3];
+  for (final number in numbers) {
+    print(number);
+  }
+
+  final list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  for (final element in list) {
+    print(element);
+  }
 }
