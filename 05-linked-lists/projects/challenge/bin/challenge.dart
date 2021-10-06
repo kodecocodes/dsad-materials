@@ -5,6 +5,7 @@ import 'linked_list.dart';
 
 void main() {
   challengeOne();
+  challengeTwo();
 }
 
 /// Challenge 1: Print in reverse
@@ -12,7 +13,7 @@ void main() {
 /// Create a function that prints the nodes of a linked list in reverse
 /// order. For example:
 ///
-/// ```text
+/// ```
 /// 1 -> 2 -> 3 -> null
 ///
 /// // should print out the following:
@@ -40,3 +41,17 @@ void printNodesRecursively<T>(Node<T>? node) {
   printNodesRecursively(node.next);
   print(node.value);
 }
+
+/// Challenge 2: Find the middle node
+///
+/// Create a function that finds the middle node of a linked list.
+/// For example:
+///
+/// ```
+/// 1 -> 2 -> 3 -> 4 -> null
+/// // middle is 3
+///
+/// 1 -> 2 -> 3 -> null
+/// // middle is 2
+/// ```
+void challengeTwo() {}
