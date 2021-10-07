@@ -4,8 +4,9 @@
 import 'linked_list.dart';
 
 void main() {
-  challengeOne();
-  challengeTwo();
+  // challengeOne();
+  // challengeTwo();
+  challengeThree();
 }
 
 /// Challenge 1: Print in reverse
@@ -13,14 +14,12 @@ void main() {
 /// Create a function that prints the nodes of a linked list in reverse
 /// order. For example:
 ///
-/// ```
 /// 1 -> 2 -> 3 -> null
 ///
-/// // should print out the following:
+/// should print out the following:
 /// 3
 /// 2
 /// 1
-/// ```
 void challengeOne() {
   var list = LinkedList<int>();
   list.push(3);
@@ -47,11 +46,78 @@ void printNodesRecursively<T>(Node<T>? node) {
 /// Create a function that finds the middle node of a linked list.
 /// For example:
 ///
-/// ```
 /// 1 -> 2 -> 3 -> 4 -> null
-/// // middle is 3
+/// middle is 3
 ///
 /// 1 -> 2 -> 3 -> null
-/// // middle is 2
-/// ```
-void challengeTwo() {}
+/// middle is 2
+void challengeTwo() {
+  var list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+  print(list);
+
+  final middleNode = getMiddle(list);
+  print('Middle: ${middleNode?.value}');
+}
+
+Node<E>? getMiddle<E>(LinkedList<E> list) {
+  var slow = list.head;
+  var fast = list.head;
+
+  while (fast?.next != null) {
+    fast = fast?.next?.next;
+    slow = slow?.next;
+  }
+
+  return slow;
+}
+
+/// Challenge 3: Reverse a linked list
+///
+/// Create a function that reverses a linked list. You do this by
+/// manipulating the nodes so that they’re linked in the other direction.
+/// For example:
+///
+/// before
+/// 1 -> 2 -> 3 -> null
+///
+/// after
+/// 3 -> 2 -> 1 -> null
+void challengeThree() {
+  var list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  print('Original list: $list');
+  list.reverse();
+  print('Reversed list: $list');
+}
+
+extension MyLinkedList<E> on LinkedList<E> {
+  // void reverse() {
+  //   final tmpList = LinkedList<E>();
+  //   for (final value in this) {
+  //     tmpList.push(value);
+  //   }
+  //   head = tmpList.head;
+  // }
+
+  void reverse() {
+    tail = head;
+    var prev = head;
+    var current = head?.next;
+    prev?.next = null;
+
+    while (current != null) {
+      final next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    head = prev;
+  }
+}
