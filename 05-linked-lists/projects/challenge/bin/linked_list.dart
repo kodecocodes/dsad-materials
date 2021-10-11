@@ -60,30 +60,29 @@ class LinkedList<E> extends Iterable<E> {
   }
 
   E? removeLast() {
-    if (isEmpty) return null;
-    if (head!.next == null) return pop();
+    if (head?.next == null) return pop();
 
-    var previous = head;
     var current = head;
-    while (current!.next != null) {
-      previous = current;
+    while (current!.next != tail) {
       current = current.next;
     }
 
-    previous!.next = null;
-    tail = previous;
-    return current.value;
+    final value = tail?.value;
+    tail = current;
+    tail?.next = null;
+    return value;
   }
 
   E? removeAfter(Node<E> node) {
-    final removedValue = node.next?.value;
+    final value = node.next?.value;
     if (node.next == tail) {
       tail = node;
     }
     node.next = node.next?.next;
-    return removedValue;
+    return value;
   }
 
+  @override
   bool get isEmpty => head == null;
 
   @override

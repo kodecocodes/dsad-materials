@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'linked_list.dart';
+import 'package:final_project/linked_list.dart';
 
 void main() {
   nodesExample();
