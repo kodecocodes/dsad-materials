@@ -32,15 +32,11 @@ class DoublyLinkedList<E> extends Iterable<E> implements LinkedList<E> {
 
   @override
   void append(E value) {
-    // convert the value to a node
     final newNode = Node(value: value, previous: tail);
-
-    // update the pointers at the tail of the list
     if (isEmpty) {
       head = newNode;
     } else {
       tail!.next = newNode;
-      // handle lists with only one element
       head?.next ??= newNode;
     }
     tail = newNode;
@@ -48,15 +44,11 @@ class DoublyLinkedList<E> extends Iterable<E> implements LinkedList<E> {
 
   @override
   void push(E value) {
-    // convert the value to a node
     final newNode = Node(value: value, next: head);
-
-    // update the pointers at the tail of the list
     if (isEmpty) {
       tail = newNode;
     } else {
       head!.previous = newNode;
-      // handle lists with only one element
       tail?.previous ??= newNode;
     }
     head = newNode;
@@ -64,38 +56,24 @@ class DoublyLinkedList<E> extends Iterable<E> implements LinkedList<E> {
 
   @override
   E? pop() {
-    // handle an empty list
     if (isEmpty) return null;
-
-    // save the return value
     final value = head?.value;
-
-    // handle a list of length one
     if (head?.next == null) {
       head = null;
       tail = null;
       return value;
     }
-
-    // update the pointers
     head = head?.next;
     head?.previous = null;
-
     return value;
   }
 
   @override
   E? removeLast() {
-    // delegate lists with one or zero items to pop
     if (tail?.previous == null) return pop();
-
-    // save the return value
     final value = tail?.value;
-
-    // update the pointers
     tail = tail?.previous;
     tail?.next = null;
-
     return value;
   }
 

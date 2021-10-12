@@ -1,237 +1,150 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'package:final_project/doubly_linked_list.dart';
+import 'package:final_project/queue.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Node:', () {
-    test('toString with single node', () {
-      final node = Node(value: 1);
-      expect(node.toString(), '1');
+  group('QueueList:', () {
+    test('isEmpty works', () {
+      final queue = QueueList<int>();
+      expect(queue.isEmpty, true);
+      queue.enqueue(1);
+      expect(queue.isEmpty, false);
+    });
+
+    test('peek works', () {
+      final queue = QueueList<int>();
+      expect(queue.peek, isNull);
+      queue.enqueue(1);
+      expect(queue.peek, 1);
+    });
+
+    test('enqueue works', () {
+      final queue = QueueList<int>();
+      queue.enqueue(1);
+      expect(queue.isEmpty, false);
+      expect(queue.peek, 1);
+      final success = queue.enqueue(2);
+      expect(success, true);
+      expect(queue.isEmpty, false);
+      expect(queue.peek, 1);
+    });
+
+    test('dequeue works', () {
+      final queue = QueueList<int>();
+      queue.enqueue(1);
+      queue.enqueue(2);
+      queue.enqueue(3);
+      expect(queue.dequeue(), 1);
+      expect(queue.dequeue(), 2);
+      queue.enqueue(4);
+      expect(queue.dequeue(), 3);
+      expect(queue.dequeue(), 4);
+      expect(queue.dequeue(), isNull);
+    });
+
+    test('toString works', () {
+      final queue = QueueList<int>();
+      queue.enqueue(1);
+      queue.enqueue(2);
+      expect(queue.toString(), '[1, 2]');
     });
   });
 
-  group('DoublyLinkedList:', () {
-    test('initial empty list has null head and tail', () {
-      final list = DoublyLinkedList<int>();
-      expect(list.head, isNull);
-      expect(list.tail, isNull);
+  group('QueueLinkedList:', () {
+    test('isEmpty works', () {
+      final queue = QueueLinkedList<int>();
+      expect(queue.isEmpty, true);
+      queue.enqueue(1);
+      expect(queue.isEmpty, false);
     });
 
-    test('push one value', () {
-      final list = DoublyLinkedList<int>();
-      list.push(1);
-      expect(list.head?.value, 1);
-      expect(list.tail?.value, 1);
-      expect(identical(list.head, list.tail), true);
+    test('peek works', () {
+      final queue = QueueLinkedList<int>();
+      expect(queue.peek, isNull);
+      queue.enqueue(1);
+      expect(queue.peek, 1);
     });
 
-    test('push two values', () {
-      final list = DoublyLinkedList<int>();
-      list.push(2);
-      list.push(1);
-      expect(list.head?.value, 1);
-      expect(list.tail?.value, 2);
-      expect(list.head?.next?.value, 2);
-      expect(list.tail?.next, null);
-      expect(list.tail?.previous?.value, 1);
-      expect(list.head?.previous, null);
-      expect(identical(list.head, list.tail), false);
+    test('enqueue works', () {
+      final queue = QueueLinkedList<int>();
+      queue.enqueue(1);
+      expect(queue.isEmpty, false);
+      expect(queue.peek, 1);
+      final success = queue.enqueue(2);
+      expect(success, true);
+      expect(queue.isEmpty, false);
+      expect(queue.peek, 1);
     });
 
-    test('append to empty list', () {
-      final list = DoublyLinkedList<int>();
-      list.append(1);
-      expect(list.head?.value, 1);
-      expect(list.tail?.value, 1);
-      expect(identical(list.head, list.tail), true);
+    test('dequeue works', () {
+      final queue = QueueLinkedList<int>();
+      expect(queue.dequeue(), isNull);
+      queue.enqueue(1);
+      queue.enqueue(2);
+      queue.enqueue(3);
+      expect(queue.dequeue(), 1);
+      expect(queue.dequeue(), 2);
+      queue.enqueue(4);
+      expect(queue.dequeue(), 3);
+      expect(queue.dequeue(), 4);
+      expect(queue.dequeue(), isNull);
     });
 
-    test('append two values', () {
-      final list = DoublyLinkedList<int>();
-      list.append(1);
-      list.append(2);
-      expect(list.head?.value, 1);
-      expect(list.tail?.value, 2);
-      expect(list.head?.next?.value, 2);
-      expect(list.tail?.next, null);
-      expect(list.tail?.previous?.value, 1);
-      expect(list.head?.previous, null);
-      expect(identical(list.head, list.tail), false);
+    test('toString works', () {
+      final queue = QueueLinkedList<int>();
+      queue.enqueue(1);
+      queue.enqueue(2);
+      expect(queue.toString(), '[1, 2]');
+    });
+  });
+
+  group('QueueRingBuffer:', () {
+    test('isEmpty works', () {
+      final queue = QueueRingBuffer<int>(4);
+      expect(queue.isEmpty, true);
+      queue.enqueue(1);
+      expect(queue.isEmpty, false);
     });
 
-    test('pop from empty list', () {
-      final list = DoublyLinkedList<int>();
-      final value = list.pop();
-      expect(value, isNull);
+    test('peek works', () {
+      final queue = QueueRingBuffer<int>(4);
+      expect(queue.peek, isNull);
+      queue.enqueue(1);
+      expect(queue.peek, 1);
     });
 
-    test('pop from single length list', () {
-      final list = DoublyLinkedList<int>();
-      list.push(1);
-      final value = list.pop();
-      expect(value, 1);
-      expect(list.isEmpty, true);
-      expect(list.head, isNull);
-      expect(list.tail, isNull);
+    test('enqueue works', () {
+      final queue = QueueRingBuffer<int>(4);
+      queue.enqueue(1);
+      expect(queue.isEmpty, false);
+      expect(queue.peek, 1);
+      final success = queue.enqueue(2);
+      expect(success, true);
+      expect(queue.isEmpty, false);
+      expect(queue.peek, 1);
     });
 
-    test('pop from length 2 list', () {
-      final list = DoublyLinkedList<int>();
-      list.push(2);
-      list.push(1);
-      final value = list.pop();
-      expect(value, 1);
-      expect(list.isEmpty, false);
-      expect(list.head?.value, 2);
-      expect(list.tail?.value, 2);
-      expect(list.tail?.next, isNull);
-      expect(list.head?.previous, isNull);
-      expect(list.tail?.previous, isNull);
+    test('dequeue works', () {
+      final queue = QueueRingBuffer<int>(4);
+      expect(queue.dequeue(), isNull);
+      queue.enqueue(1);
+      queue.enqueue(2);
+      queue.enqueue(3);
+      expect(queue.dequeue(), 1);
+      expect(queue.dequeue(), 2);
+      queue.enqueue(4);
+      expect(queue.dequeue(), 3);
+      expect(queue.dequeue(), 4);
+      expect(queue.dequeue(), isNull);
     });
 
-    test('pop from length 3 list', () {
-      final list = DoublyLinkedList<int>();
-      list.push(3);
-      list.push(2);
-      list.push(1);
-      final value = list.pop();
-      expect(value, 1);
-      expect(list.isEmpty, false);
-      expect(list.head?.value, 2);
-      expect(list.tail?.value, 3);
-      expect(list.tail?.next, isNull);
-      expect(list.head?.previous, isNull);
-      expect(list.tail?.previous, list.head);
+    test('toString works', () {
+      final queue = QueueRingBuffer<int>(4);
+      queue.enqueue(1);
+      queue.enqueue(2);
+      expect(queue.toString(), '[1, 2]');
     });
-
-    test('removeLast from empty list', () {
-      final list = DoublyLinkedList<int>();
-      final value = list.removeLast();
-      expect(value, isNull);
-    });
-
-    test('removeLast from single length list', () {
-      final list = DoublyLinkedList<int>();
-      list.append(1);
-      final value = list.removeLast();
-      expect(value, 1);
-      expect(list.isEmpty, true);
-      expect(list.head, isNull);
-      expect(list.tail, isNull);
-    });
-
-    test('removeLast from length 2 list', () {
-      final list = DoublyLinkedList<int>();
-      list.append(1);
-      list.append(2);
-      final value = list.removeLast();
-      expect(value, 2);
-      expect(list.isEmpty, false);
-      expect(list.head?.value, 1);
-      expect(list.tail?.value, 1);
-      expect(list.tail?.next, isNull);
-      expect(list.head?.previous, isNull);
-      expect(list.tail?.previous, isNull);
-    });
-
-    test('removeLast from length 3 list', () {
-      final list = DoublyLinkedList<int>();
-      list.append(1);
-      list.append(2);
-      list.append(3);
-      final value = list.removeLast();
-      expect(value, 3);
-      expect(list.isEmpty, false);
-      expect(list.head?.value, 1);
-      expect(list.tail?.value, 2);
-      expect(list.tail?.next, isNull);
-      expect(list.head?.previous, isNull);
-      expect(list.tail?.previous, list.head);
-    });
-
-    // test('removeLast from empty list', () {
-    //   final list = DoublyLinkedList<int>();
-    //   final value = list.removeLast();
-    //   expect(value, isNull);
-    // });
-
-    // test('removeLast from single length list', () {
-    //   final list = DoublyLinkedList<int>();
-    //   list.push(1);
-    //   final value = list.removeLast();
-    //   expect(value, 1);
-    //   expect(list.isEmpty, true);
-    //   expect(list.head, isNull);
-    //   expect(list.tail, isNull);
-    //   expect(list.head?.next, isNull);
-    //   expect(list.tail?.next, isNull);
-    // });
-
-    // test('removeLast from length 2 list', () {
-    //   final list = DoublyLinkedList<int>();
-    //   list.append(1);
-    //   list.append(2);
-    //   final value = list.removeLast();
-    //   expect(value, 2);
-    //   expect(list.isEmpty, false);
-    //   expect(list.head?.value, 1);
-    //   expect(list.tail?.value, 1);
-    //   expect(list.head?.next, isNull);
-    //   expect(list.tail?.next, isNull);
-    // });
-
-    // test('removeLast from multi length list', () {
-    //   final list = DoublyLinkedList<int>();
-    //   list.append(1);
-    //   list.append(2);
-    //   list.append(3);
-    //   final value = list.removeLast();
-    //   expect(value, 3);
-    //   expect(list.head?.value, 1);
-    //   expect(list.tail?.value, 2);
-    //   expect(list.head?.next, list.tail);
-    //   expect(list.tail?.next, isNull);
-    // });
-
-    // test('removeAfter from single length list', () {
-    //   final list = LinkedList<int>();
-    //   list.push(1);
-    //   final value = list.removeAfter(list.head!);
-    //   expect(value, isNull);
-    //   expect(list.isEmpty, false);
-    //   expect(list.head?.value, 1);
-    //   expect(list.tail?.value, 1);
-    //   expect(list.head?.next, isNull);
-    //   expect(list.tail?.next, isNull);
-    // });
-
-    // test('removeAfter from length 2 list', () {
-    //   final list = LinkedList<int>();
-    //   list.push(1);
-    //   list.append(2);
-    //   final value = list.removeAfter(list.head!);
-    //   expect(value, 2);
-    //   expect(list.isEmpty, false);
-    //   expect(list.head?.value, 1);
-    //   expect(list.tail?.value, 1);
-    //   expect(list.head?.next, isNull);
-    //   expect(list.tail?.next, isNull);
-    // });
-
-    // test('removeAfter from multi length list', () {
-    //   final list = LinkedList<int>();
-    //   list.append(1);
-    //   list.append(2);
-    //   list.append(3);
-    //   final value = list.removeAfter(list.head!);
-    //   expect(value, 2);
-    //   expect(list.isEmpty, false);
-    //   expect(list.head?.value, 1);
-    //   expect(list.tail?.value, 3);
-    //   expect(list.head?.next, list.tail);
-    //   expect(list.tail?.next, isNull);
-    // });
   });
 }
