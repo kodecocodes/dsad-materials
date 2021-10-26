@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'stack.dart';
+import 'package:final_project/stack.dart';
 
 void main() {
   final stack = Stack<int>();
