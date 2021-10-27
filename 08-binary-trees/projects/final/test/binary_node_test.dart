@@ -1,11 +1,11 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'package:final_project/binary_tree.dart';
+import 'package:final_project/binary_node.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Binary Tree:', () {
+  group('Binary Node:', () {
     test('toString', () {
       final tree = createBinaryTree();
       expect(

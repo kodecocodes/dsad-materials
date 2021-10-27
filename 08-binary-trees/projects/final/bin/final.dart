@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'package:final_project/binary_tree.dart';
+import 'package:final_project/binary_node.dart';
 
 void main() {
   binaryTree();
