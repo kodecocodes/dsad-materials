@@ -2,7 +2,7 @@
 // For full license & permission details, see LICENSE.
 
 import 'binary_search_tree.dart';
-import 'binary_tree.dart';
+import 'binary_node.dart';
 
 void main() {
   challangeOne();
@@ -14,18 +14,18 @@ void main() {
 ///
 /// Write a function that checks if a binary tree is a binary search tree.
 void challangeOne() {
-  final goodTree = BinaryNode<num>(4)
-    ..leftChild = BinaryNode<num>(3)
-    ..rightChild = BinaryNode<num>(4);
+  final goodTree = BinaryNode<int>(4)
+    ..leftChild = BinaryNode<int>(3)
+    ..rightChild = BinaryNode<int>(4);
   print(goodTree.isBinarySearchTree());
 
-  final badTree = BinaryNode<num>(4)
-    ..leftChild = BinaryNode<num>(4)
-    ..rightChild = BinaryNode<num>(5);
+  final badTree = BinaryNode<int>(4)
+    ..leftChild = BinaryNode<int>(4)
+    ..rightChild = BinaryNode<int>(5);
   print(badTree.isBinarySearchTree());
 }
 
-extension Checker<E extends Comparable<E>> on BinaryNode<E> {
+extension Checker<E extends Comparable<dynamic>> on BinaryNode<E> {
   bool isBinarySearchTree() {
     return _isBST(this, min: null, max: null);
   }
@@ -48,15 +48,15 @@ extension Checker<E extends Comparable<E>> on BinaryNode<E> {
 ///
 /// Given two binary trees, how would you test if they are equal or not?
 void challangeTwo() {
-  final sameOne = BinarySearchTree<num>()
+  final sameOne = BinarySearchTree<int>()
     ..insert(3)
     ..insert(5)
     ..insert(1);
-  final sameTwo = BinarySearchTree<num>()
+  final sameTwo = BinarySearchTree<int>()
     ..insert(3)
     ..insert(5)
     ..insert(1);
-  final different = BinarySearchTree<num>()
+  final different = BinarySearchTree<int>()
     ..insert(7)
     ..insert(9)
     ..insert(0);
@@ -83,17 +83,17 @@ bool _isEqual(BinaryNode? first, BinaryNode? second) {
 /// Create a method that checks if the current tree contains all the
 /// elements of another tree.
 void challangeThree() {
-  final tree = BinarySearchTree<num>()
+  final tree = BinarySearchTree<int>()
     ..insert(3)
     ..insert(5)
     ..insert(1)
     ..insert(0)
     ..insert(2);
-  final subtree = BinarySearchTree<num>()
+  final subtree = BinarySearchTree<int>()
     ..insert(1)
     ..insert(0)
     ..insert(2);
-  final otherTree = BinarySearchTree<num>()
+  final otherTree = BinarySearchTree<int>()
     ..insert(10)
     ..insert(2)
     ..insert(15);

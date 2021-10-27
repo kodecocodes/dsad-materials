@@ -1,9 +1,9 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'binary_tree.dart';
+import 'binary_node.dart';
 
-class BinarySearchTree<E extends Comparable<E>> {
+class BinarySearchTree<E extends Comparable<dynamic>> {
   BinaryNode<E>? root;
 
   void insert(E value) {
