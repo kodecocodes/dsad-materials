@@ -41,6 +41,14 @@ void main() {
       trie.remove('cut');
       expect(trie.contains('cut'), false);
     });
+
+    test('matchPrefix', () {
+      final trie = StringTrie();
+      trie.insert('cute');
+      trie.insert('cut');
+      expect(trie.matchPrefix('cu'), ['cut', 'cute']);
+      expect(trie.matchPrefix('cute'), ['cute']);
+    });
   });
 
   group('Trie:', () {
@@ -66,6 +74,15 @@ void main() {
       expect(trie.contains('cut'.codeUnits), true);
       trie.remove('cut'.codeUnits);
       expect(trie.contains('cut'.codeUnits), false);
+    });
+
+    test('matchPrefix', () {
+      final trie = Trie<int, List<int>>();
+      trie.insert('cute'.codeUnits);
+      trie.insert('cut'.codeUnits);
+      expect(trie.matchPrefix('cu'.codeUnits),
+          ['cut'.codeUnits, 'cute'.codeUnits]);
+      expect(trie.matchPrefix('cute'.codeUnits), ['cute'.codeUnits]);
     });
   });
 }

@@ -11,11 +11,11 @@ void main() {
 
 /// Challenge 1: Additional properties
 ///
-/// The current implementation of the `StringTrie` is missing some notable
+/// The current implementation of `StringTrie` is missing some notable
 /// operations. Your task for this challenge is to augment the current
 /// implementation of the trie by adding the following:
 ///
-/// 1. An `allStrings` property that returns all the strings in the trie.
+/// 1. An `allStrings` property that returns all the collections in the trie.
 ///
 /// 2. A `count` property that tells you how many strings are currently in
 ///    the trie.
@@ -36,7 +36,8 @@ void challengeOne() {
 /// Challenge 2: Generic trie
 ///
 /// The trie data structure can be used beyond strings. Make a new class
-/// named `Trie` that handles any iterable collection.
+/// named `Trie` that handles any iterable collection. Implement the `insert`,
+/// `contains` and `remove` methods.
 void challengeTwo() {
   // See trie.dart for the implementation details.
   final trie = Trie<int, List<int>>();

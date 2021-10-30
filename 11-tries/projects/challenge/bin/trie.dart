@@ -50,4 +50,34 @@ class Trie<E, T extends Iterable<E>> {
       current = current.parent!;
     }
   }
+
+  List<List<E>> matchPrefix(T prefix) {
+    var current = root;
+    for (E element in prefix) {
+      final child = current.children[element];
+      if (child == null) {
+        return [];
+      }
+      current = child;
+    }
+    return _moreMatches(prefix.toList(), current);
+  }
+
+  List<List<E>> _moreMatches(List<E> prefix, TrieNode<E> node) {
+    List<List<E>> results = [];
+    if (node.isTerminating) {
+      results.add(prefix);
+    }
+    for (final child in node.children.values) {
+      final newPrefix = prefix.toList();
+      newPrefix.add(child!.key!);
+      results.addAll(
+        _moreMatches(
+          newPrefix,
+          child,
+        ),
+      );
+    }
+    return results;
+  }
 }
