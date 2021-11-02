@@ -11,10 +11,10 @@ void main() {
 
 /// Challenge 1: Binary search as a free function
 ///
-/// In the previous chapter, you implemented binary search as an extension
+/// In this chapter, you implemented binary search as an extension
 /// of `List`. Since binary search only works on sorted lists, exposing
-/// `binarySearch` for every list (including unsorted ones) will have a
-/// chance of misuse.
+/// `binarySearch` for every list (including unsorted ones) opens it up
+/// to being misused.
 ///
 /// Your challenge is to implement binary search as a free function.
 void challengeOne() {
@@ -48,14 +48,16 @@ void challengeOne() {
 /// Challenge 2: Searching for a range
 ///
 /// Write a function that searches a sorted list and finds the range of
-/// indices for a particular element. For example:
+/// indices for a particular element. You can start by creating a class
+/// named `Range` that holds the start and end indices.
+///
+/// For example:
 ///
 /// ```
 /// final list = [1, 2, 3, 3, 3, 4, 5, 5];
 /// final range = findRange(list, value: 3);
 /// ```
 ///
-/// First create a class named `Range` that holds the start and end indices.
 /// `findRange` should return `Range(2, 5)` since those are the start and
 /// end indices for the value `3`.
 void challengeTwo() {

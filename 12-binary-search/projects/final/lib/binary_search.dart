@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-extension SortedList<E extends Comparable<dynamic>> on List {
+extension SortedList<E extends Comparable<dynamic>> on List<E> {
   int? binarySearch(E value, [int? start, int? end]) {
     final startIndex = start ?? 0;
     final endIndex = end ?? length;
