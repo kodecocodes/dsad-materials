@@ -12,7 +12,7 @@ void main() {
 
 /// Challenge 1: Find the nth smallest integer
 ///
-/// Write a function to find the `nth` smallest integer in an unsorted list.
+/// Write a function to find the nth smallest integer in an unsorted list.
 /// For example:
 ///
 /// ```
@@ -37,10 +37,10 @@ int? getNthSmallestElement(int n, List<int> elements) {
   return value;
 }
 
-/// Challenge 2: Step-by-Step diagram
+/// Challenge 2: Step-by-step diagram
 ///
-/// Given the following list, visually construct a min-heap. Provide a
-/// step-by-step diagram of how the min-heap is constructed.
+/// Given the following unsorted list, visually construct a min-heap. Provide a
+/// step-by-step diagram of how the min-heap is formed.
 ///
 /// ```
 /// [21, 10, 18, 5, 3, 100, 1]
@@ -66,9 +66,9 @@ void challengeThree() {
   print(heap);
 }
 
-/// Challenge 4: A Min Heap?
+/// Challenge 4: Is it a min-heap?
 ///
-/// Write a function to check if a given list is a min heap.
+/// Write a function to check if a given list is a min-heap.
 void challengeFour() {
   print(isMinHeap([1, 3, 18, 5, 10, 100, 21]));
   print(isMinHeap([10, 3, 18, 5, 10, 100, 21]));
