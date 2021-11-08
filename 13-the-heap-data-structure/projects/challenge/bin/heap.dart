@@ -17,6 +17,12 @@ class Heap<E extends Comparable<dynamic>> {
     }
   }
 
+  /// Challenge 3
+  void merge(List<E> list) {
+    elements.addAll(list);
+    _buildHeap();
+  }
+
   late final List<E> elements;
   final Priority priority;
 
