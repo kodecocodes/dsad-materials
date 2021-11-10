@@ -11,5 +11,18 @@ class PriorityQueue<E extends Comparable<dynamic>> implements Queue<E> {
 
   late Heap<E> _heap;
 
-  // more to come
+  @override
+  bool get isEmpty => _heap.isEmpty;
+
+  @override
+  E? get peek => _heap.peek;
+
+  @override
+  bool enqueue(E element) {
+    _heap.insert(element);
+    return true;
+  }
+
+  @override
+  E? dequeue() => _heap.remove();
 }
