@@ -28,9 +28,9 @@ class Heap<E extends Comparable<dynamic>> {
 
   bool get isEmpty => elements.isEmpty;
 
-  int get length => elements.length;
+  int get size => elements.length;
 
-  E? peek() => (isEmpty) ? null : elements.first;
+  E? get peek => (isEmpty) ? null : elements.first;
 
   void insert(E value) {
     elements.add(value);
@@ -49,7 +49,7 @@ class Heap<E extends Comparable<dynamic>> {
 
   E? remove() {
     if (isEmpty) return null;
-    _swapValues(0, length - 1);
+    _swapValues(0, elements.length - 1);
     final value = elements.removeLast();
     _siftDown(0);
     return value;
@@ -84,7 +84,7 @@ class Heap<E extends Comparable<dynamic>> {
   }
 
   int indexOf(E value, {int index = 0}) {
-    if (index >= length) {
+    if (index >= elements.length) {
       return -1;
     }
     if (_firstHasHigherPriority(value, elements[index])) {
@@ -118,7 +118,7 @@ class Heap<E extends Comparable<dynamic>> {
   }
 
   int _higherPriority(int indexA, int indexB) {
-    if (indexA >= length) return indexB;
+    if (indexA >= elements.length) return indexB;
     final valueA = elements[indexA];
     final valueB = elements[indexB];
     final isFirst = _firstHasHigherPriority(valueA, valueB);

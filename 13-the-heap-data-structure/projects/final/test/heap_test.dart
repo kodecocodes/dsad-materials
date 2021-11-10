@@ -6,6 +6,19 @@ import 'package:test/test.dart';
 
 void main() {
   group('Max heap:', () {
+    test('basic getters', () {
+      final heap = Heap<int>();
+      expect(heap.isEmpty, true);
+      expect(heap.peek, null);
+      expect(heap.size, 0);
+
+      heap.insert(10);
+      heap.insert(5);
+      expect(heap.isEmpty, false);
+      expect(heap.peek, 10);
+      expect(heap.size, 2);
+    });
+
     test('inserting in natural order (no sifting required)', () {
       final heap = Heap<int>();
       heap.insert(10);
