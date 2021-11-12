@@ -84,7 +84,7 @@ class PriorityQueueList<E extends Comparable<dynamic>> implements Queue<E> {
 /// people who still want to go! However, ticket sales will first prioritize
 /// someone with a military background, followed by seniority.
 ///
-/// Use a priority queue to tell you the order of people in the waitlist.
+/// Use a priority queue to prioritize the order of people on the waitlist.
 /// Start by making a `Person` class that you can instantiate like so:
 ///
 /// ```
