@@ -10,7 +10,7 @@ void main() {
 
 /// Challenge 1: Bubble up
 ///
-/// Here is a list of randomly distributed elements:
+/// Here's a list of randomly distributed elements:
 ///
 /// [4, 2, 5, 1, 3]
 ///
@@ -93,8 +93,8 @@ void selectionSort<E extends Comparable<dynamic>>(List<E> list) {
 ///
 /// [4, 2, 5, 1, 3]
 ///
-/// Work out by hand the steps that an insertion sort would would take to
-/// sort this list.
+/// Work out by hand the steps that an **insertion sort** would take to sort
+/// this list.
 void challengeThree() {
   insertionSort([4, 2, 5, 1, 3]);
 }
@@ -122,8 +122,8 @@ void insertionSort<E extends Comparable<dynamic>>(List<E> list) {
 ///
 /// [1, 2, 3, 4, 5]
 ///
-/// Are bubble sort, selection sort and insertion sort still _O_(_n²_)?
-/// Show the step-by-step moves that each algorithm takes.
+/// Are bubble sort, selection sort and insertion sort still O(n²)?
+/// How do the algorithms take shortcuts to finish more quickly?
 void challengeFour() {
   bubbleSort([1, 2, 3, 4, 5]);
   selectionSort([1, 2, 3, 4, 5]);
