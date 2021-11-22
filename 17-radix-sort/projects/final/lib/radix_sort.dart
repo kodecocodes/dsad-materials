@@ -28,6 +28,7 @@ extension RadixSort on List<int> {
 
 extension MsdRadixSort on List<int> {
   int maxDigits() {
+    if (isEmpty) return 0;
     return reduce(max).digits();
   }
 
