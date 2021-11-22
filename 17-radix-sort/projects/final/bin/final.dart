@@ -30,6 +30,7 @@ void digitAtPosition() {
   print(1345.digitAt(2));
   print(1345.digitAt(3));
   print(1345.digitAt(4));
+  print(1345.digitAt(5));
 }
 
 void maxDigits() {
