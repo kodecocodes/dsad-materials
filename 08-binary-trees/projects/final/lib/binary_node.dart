@@ -27,23 +27,24 @@ class BinaryNode<T> {
 
   @override
   String toString() {
-    final out = StringBuffer();
-
-    rightChild?._buildTree(out, true, '');
-    out.writeln(value);
-    leftChild?._buildTree(out, false, '');
-
-    return out.toString();
+    return _diagram(this);
   }
 
-  void _buildTree(StringBuffer out, bool isRight, String indent) {
-    rightChild?._buildTree(out, true, indent + (isRight ? '     ' : '│    '));
-
-    out
-      ..write(indent)
-      ..write(isRight ? '┌─── ' : '└─── ')
-      ..writeln(value);
-
-    leftChild?._buildTree(out, false, indent + (isRight ? '│    ' : '     '));
+  String _diagram(
+    BinaryNode<T>? node, [
+    String top = '',
+    String root = '',
+    String bottom = '',
+  ]) {
+    if (node == null) {
+      return '$root null\n';
+    }
+    if (node.leftChild == null && node.rightChild == null) {
+      return '$root ${node.value}\n';
+    }
+    final a = _diagram(node.rightChild, '$top ', '$top┌──', '$top│ ');
+    final b = '$root${node.value}\n';
+    final c = _diagram(node.leftChild, '$bottom│ ', '$bottom└──', '$bottom ');
+    return '$a$b$c';
   }
 }
