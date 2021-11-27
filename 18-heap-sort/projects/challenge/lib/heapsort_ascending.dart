@@ -3,12 +3,11 @@
 
 import 'heap.dart';
 
-List<E> heapsort<E extends Comparable<dynamic>>(List<E> list) {
+List<E> descendingHeapsort<E extends Comparable<dynamic>>(List<E> list) {
   final heap = Heap<E>(
     elements: list.toList(),
-    priority: Priority.min,
+    priority: Priority.max, // changed
   );
-
   final sorted = <E>[];
   while (!heap.isEmpty) {
     final value = heap.remove();
@@ -17,8 +16,8 @@ List<E> heapsort<E extends Comparable<dynamic>>(List<E> list) {
   return sorted;
 }
 
-extension Heapsort<E extends Comparable<dynamic>> on List<E> {
-  void heapsortInPlace() {
+extension DescendingHeapsort<E extends Comparable<dynamic>> on List<E> {
+  void descendingHeapsortInPlace() {
     if (isEmpty) return;
 
     final start = length ~/ 2 - 1;
@@ -52,10 +51,10 @@ extension Heapsort<E extends Comparable<dynamic>> on List<E> {
       final left = _leftChildIndex(parent);
       final right = _rightChildIndex(parent);
       var chosen = parent;
-      if (left < end && this[left].compareTo(this[chosen]) > 0) {
+      if (left < end && this[left].compareTo(this[chosen]) < 0) {
         chosen = left;
       }
-      if (right < end && this[right].compareTo(this[chosen]) > 0) {
+      if (right < end && this[right].compareTo(this[chosen]) < 0) {
         chosen = right;
       }
       if (chosen == parent) return;

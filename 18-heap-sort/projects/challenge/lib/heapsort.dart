@@ -17,15 +17,19 @@ List<E> heapsort<E extends Comparable<dynamic>>(List<E> list) {
   return sorted;
 }
 
+/// This implementation adds print statements so that you can observe the
+/// comparisons that it makes while building the heap and sorting the list.
 extension Heapsort<E extends Comparable<dynamic>> on List<E> {
   void heapsortInPlace() {
     if (isEmpty) return;
 
+    print('Building heap:');
     final start = length ~/ 2 - 1;
     for (var i = start; i >= 0; i--) {
       _siftDown(start: i, end: length);
     }
 
+    print('Sorting list:');
     for (var i = length - 1; i > 0; i--) {
       _swapValues(0, i);
       _siftDown(start: 0, end: i);
@@ -52,11 +56,17 @@ extension Heapsort<E extends Comparable<dynamic>> on List<E> {
       final left = _leftChildIndex(parent);
       final right = _rightChildIndex(parent);
       var chosen = parent;
-      if (left < end && this[left].compareTo(this[chosen]) > 0) {
-        chosen = left;
+      if (left < end) {
+        print('Comparing ${this[chosen]} and ${this[left]}');
+        if (this[left].compareTo(this[chosen]) > 0) {
+          chosen = left;
+        }
       }
-      if (right < end && this[right].compareTo(this[chosen]) > 0) {
-        chosen = right;
+      if (right < end) {
+        print('Comparing ${this[chosen]} and ${this[right]}');
+        if (this[right].compareTo(this[chosen]) > 0) {
+          chosen = right;
+        }
       }
       if (chosen == parent) return;
       _swapValues(parent, chosen);

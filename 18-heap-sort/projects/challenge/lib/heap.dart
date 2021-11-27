@@ -69,11 +69,11 @@ class Heap<E extends Comparable<dynamic>> {
     while (true) {
       final left = _leftChildIndex(parent);
       final right = _rightChildIndex(parent);
-      var chosen = _higherPriority(left, parent);
-      chosen = _higherPriority(right, chosen);
-      if (chosen == parent) return;
-      _swapValues(parent, chosen);
-      parent = chosen;
+      var candidate = _higherPriority(left, parent);
+      candidate = _higherPriority(right, candidate);
+      if (candidate == parent) return;
+      _swapValues(parent, candidate);
+      parent = candidate;
     }
   }
 
