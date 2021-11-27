@@ -15,7 +15,7 @@ void main() {
 /// - `[1, 2, 3, 4, 5]`
 /// - `[5, 4, 3, 2, 1]`
 ///
-/// You can assume that the internal implementation uses a max heap.
+/// You can assume that the implementation uses a max-heap.
 void challengeOne() {
   var list = [5, 4, 3, 2, 1];
   print(list);
@@ -29,7 +29,7 @@ void challengeOne() {
 }
 
 /// The current implementations of heapsort in in this chapter sort the
-/// elements in _ascending_ order. How would you sort in _descending_ order?
+/// elements in ascending order. How would you sort in descending order?
 void challengeTwo() {
   usingReversed();
   reimplementingHeapsort();

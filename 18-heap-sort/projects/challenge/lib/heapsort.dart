@@ -30,9 +30,9 @@ extension Heapsort<E extends Comparable<dynamic>> on List<E> {
     }
 
     print('Sorting list:');
-    for (var i = length - 1; i > 0; i--) {
-      _swapValues(0, i);
-      _siftDown(start: 0, end: i);
+    for (var end = length - 1; end > 0; end--) {
+      _swapValues(0, end);
+      _siftDown(start: 0, end: end);
     }
   }
 

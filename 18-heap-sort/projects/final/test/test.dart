@@ -1,10 +1,18 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
+import 'package:final_project/heap.dart';
 import 'package:final_project/heapsort.dart';
 import 'package:test/test.dart';
 
 void main() {
+  group('Heap', () {
+    test('produces order shown in example image', () {
+      final heap = Heap(elements: [6, 12, 2, 26, 8, 18, 21, 9, 5]);
+      expect(heap.elements, [26, 12, 21, 9, 8, 18, 2, 6, 5]);
+    });
+  });
+
   group('heapsort:', () {
     test('original list not changed', () {
       final list = [1, 3, 2];
