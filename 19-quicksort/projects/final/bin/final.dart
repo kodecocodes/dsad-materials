@@ -4,10 +4,10 @@
 import 'package:final_project/quicksort.dart';
 
 void main() {
-  // naive();
-  // lomuto();
-  // hoare();
-  // median();
+  naive();
+  lomuto();
+  hoare();
+  median();
   dutchFlag();
 }
 
