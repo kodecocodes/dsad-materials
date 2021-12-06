@@ -11,9 +11,9 @@ void main() {
       expect(graph.toString(), '');
     });
 
-    test('since vertex', () {
+    test('single vertex', () {
       final graph = AdjacencyList<String>();
-      final vertex = graph.createVertex('a');
+      graph.createVertex('a');
       expect(graph.toString(), 'a --> \n');
     });
 
@@ -25,13 +25,85 @@ void main() {
       final aEdges = graph.edges(a);
       expect(aEdges.first.source, a);
       expect(aEdges.first.destination, b);
+      expect(aEdges.first.weight, null);
       final bEdges = graph.edges(b);
       expect(bEdges.first.source, b);
       expect(bEdges.first.destination, a);
+      expect(bEdges.first.weight, null);
+      expect(graph.toString(), 'a --> b\nb --> a\n');
+    });
 
-      // expect(graph.toString(), 'a --> b');
+    test('two vertices, directed', () {
+      final graph = AdjacencyList<String>();
+      final a = graph.createVertex('a');
+      final b = graph.createVertex('b');
+      graph.addEdge(a, b, edgeType: EdgeType.directed);
+      final aEdges = graph.edges(a);
+      expect(aEdges.first.source, a);
+      expect(aEdges.first.destination, b);
+      expect(aEdges.first.weight, null);
+      final bEdges = graph.edges(b);
+      expect(bEdges.isEmpty, true);
+    });
+
+    test('weight', () {
+      final graph = AdjacencyList<String>();
+      final a = graph.createVertex('a');
+      final b = graph.createVertex('b');
+      // The following line will cause a crash. Should it return null?
+      // expect(graph.weight(a, b), null);
+      graph.addEdge(a, b, weight: 3);
+      expect(graph.weight(a, b), 3);
+    });
+  });
+
+  group('AdjacencyMatrix:', () {
+    test('empty graph', () {
+      final graph = AdjacencyMatrix<String>();
+      expect(graph.toString(), '');
+    });
+
+    test('single vertex', () {
+      final graph = AdjacencyMatrix<String>();
+      graph.createVertex('a');
+      expect(graph.toString(), '0: a\n.     \n');
+    });
+
+    test('two vertices, undirected', () {
+      final graph = AdjacencyMatrix<String>();
+      final a = graph.createVertex('a');
+      final b = graph.createVertex('b');
+      graph.addEdge(a, b, weight: 1);
+      final aEdges = graph.edges(a);
+      expect(aEdges.first.source, a);
+      expect(aEdges.first.destination, b);
+      expect(aEdges.first.weight, 1);
+      final bEdges = graph.edges(b);
+      expect(bEdges.first.source, b);
+      expect(bEdges.first.destination, a);
+      expect(bEdges.first.weight, 1);
+    });
+
+    test('two vertices, directed', () {
+      final graph = AdjacencyMatrix<String>();
+      final a = graph.createVertex('a');
+      final b = graph.createVertex('b');
+      graph.addEdge(a, b, edgeType: EdgeType.directed, weight: 1);
+      final aEdges = graph.edges(a);
+      expect(aEdges.first.source, a);
+      expect(aEdges.first.destination, b);
+      expect(aEdges.first.weight, 1);
+      final bEdges = graph.edges(b);
+      expect(bEdges.isEmpty, true);
+    });
+
+    test('weight', () {
+      final graph = AdjacencyMatrix<String>();
+      final a = graph.createVertex('a');
+      final b = graph.createVertex('b');
+      expect(graph.weight(a, b), null);
+      graph.addEdge(a, b, weight: 3);
+      expect(graph.weight(a, b), 3);
     });
   });
 }
-
-// TODO test `weight` with empty 
