@@ -50,8 +50,7 @@ void main() {
       final graph = AdjacencyList<String>();
       final a = graph.createVertex('a');
       final b = graph.createVertex('b');
-      // The following line will cause a crash. Should it return null?
-      // expect(graph.weight(a, b), null);
+      expect(graph.weight(a, b), null);
       graph.addEdge(a, b, weight: 3);
       expect(graph.weight(a, b), 3);
     });
