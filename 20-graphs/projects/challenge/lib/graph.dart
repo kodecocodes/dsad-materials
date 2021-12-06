@@ -86,9 +86,11 @@ class AdjacencyList<E> implements Graph<E> {
     Vertex<E> source,
     Vertex<E> destination,
   ) {
-    return edges(source).firstWhere((edge) {
+    final match = edges(source).where((edge) {
       return edge.destination == destination;
-    }).weight;
+    });
+    if (match.isEmpty) return null;
+    return match.first.weight;
   }
 
   @override

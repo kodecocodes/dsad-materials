@@ -9,7 +9,7 @@ void main() {
 
 /// Challenge 1: Graph your friends
 ///
-/// Megan has three friends, Sandra, Pablo and Edith. Pablo has friends
+/// Megan has three friends: Sandra, Pablo and Edith. Pablo has friends
 /// as well: Ray, Luke, and a mutual friend of Megan's. Edith is friends
 /// with Manda and Vicki. Manda is friends with Pablo and Megan. Create
 /// an adjacency list that represents this friendship graph. Which mutual
