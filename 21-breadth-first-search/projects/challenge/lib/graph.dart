@@ -31,6 +31,9 @@ enum EdgeType { directed, undirected }
 abstract class Graph<E> {
   Vertex<E> createVertex(E data);
 
+  // Challenge 3
+  List<Vertex<E>> allVertices();
+
   void addEdge(
     Vertex<E> source,
     Vertex<E> destination, {
@@ -57,6 +60,12 @@ class AdjacencyList<E> implements Graph<E> {
     );
     _connections[vertex] = [];
     return vertex;
+  }
+
+  // Challenge 3
+  @override
+  List<Vertex<E>> allVertices() {
+    return _connections.keys.toList();
   }
 
   @override
@@ -127,6 +136,12 @@ class AdjacencyMatrix<E> implements Graph<E> {
     );
     _weights.add(row);
     return vertex;
+  }
+
+  // Challenge 3
+  @override
+  List<Vertex<E>> allVertices() {
+    return _vertices;
   }
 
   @override

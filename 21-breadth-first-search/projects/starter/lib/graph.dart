@@ -47,15 +47,15 @@ abstract class Graph<E> {
 }
 
 class AdjacencyList<E> implements Graph<E> {
-  final Map<Vertex<E>, List<Edge<E>>> _adjacencies = {};
+  final Map<Vertex<E>, List<Edge<E>>> _connections = {};
 
   @override
   Vertex<E> createVertex(E data) {
     final vertex = Vertex(
-      index: _adjacencies.length,
+      index: _connections.length,
       data: data,
     );
-    _adjacencies[vertex] = [];
+    _connections[vertex] = [];
     return vertex;
   }
 
@@ -66,11 +66,11 @@ class AdjacencyList<E> implements Graph<E> {
     EdgeType edgeType = EdgeType.undirected,
     double? weight,
   }) {
-    _adjacencies[source]?.add(
+    _connections[source]?.add(
       Edge(source, destination, weight),
     );
     if (edgeType == EdgeType.undirected) {
-      _adjacencies[destination]?.add(
+      _connections[destination]?.add(
         Edge(destination, source, weight),
       );
     }
@@ -78,7 +78,7 @@ class AdjacencyList<E> implements Graph<E> {
 
   @override
   List<Edge<E>> edges(Vertex<E> source) {
-    return _adjacencies[source] ?? [];
+    return _connections[source] ?? [];
   }
 
   @override
@@ -96,7 +96,7 @@ class AdjacencyList<E> implements Graph<E> {
   @override
   String toString() {
     final result = StringBuffer();
-    _adjacencies.forEach((vertex, edges) {
+    _connections.forEach((vertex, edges) {
       final destinations = edges.map((edge) {
         return edge.destination;
       }).join(', ');
