@@ -1,9 +1,9 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'package:final_project/breadth_first_search.dart';
-import 'package:final_project/graph.dart';
-import 'package:final_project/queue.dart';
+import 'package:challenge/breadth_first_search.dart';
+import 'package:challenge/graph.dart';
+import 'package:challenge/queue.dart';
 
 void main() {
   challengeOne();
@@ -11,6 +11,8 @@ void main() {
   challengeThree();
 }
 
+/// Challenge 1: Maximum queue size
+///
 /// For the following undirected graph, list the **maximum** number of
 /// items ever in the queue. Assume that the starting vertex is **A**.
 ///
@@ -75,8 +77,10 @@ extension QueuePrintingBfs<E> on Graph<E> {
   }
 }
 
-/// In this chapter, you went over an iterative implementation of
-/// breadth-first search. Now write a recursive implementation.
+/// Challenge 2: Iterative BFS
+///
+/// In this chapter, you create an iterative implementation of
+/// breadth-first search. Now write a recursive solution.
 void challengeTwo() {
   final graph = AdjacencyList<String>();
 
@@ -132,6 +136,8 @@ extension RecursiveBfs<E> on Graph<E> {
   }
 }
 
+/// Challenge 3: Disconnected Graph
+///
 /// Add a method to `Graph` to detect if a graph is disconnected. An example
 /// of a disconnected graph is shown below:
 ///
