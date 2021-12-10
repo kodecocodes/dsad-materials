@@ -90,3 +90,53 @@ extension Digits on int {
     return number % _base;
   }
 }
+
+extension UnoptimizedRadixSort on List<int> {
+  void unoptimizedRadixSort() {
+    const base = 10;
+    var done = false;
+    var place = 1;
+    var round = 1;
+    while (!done) {
+      print('Round: ${round++}');
+      done = true;
+      final buckets = List.generate(base, (_) => <int>[]);
+      forEach((number) {
+        final remainingPart = number ~/ place;
+        final digit = remainingPart % base;
+        buckets[digit].add(number);
+        if (remainingPart ~/ base > 0) {
+          done = false;
+        }
+      });
+      place *= base;
+      clear();
+      addAll(buckets.expand((element) => element));
+    }
+  }
+}
+
+extension OptimizedRadixSort on List<int> {
+  void optimizedRadixSort() {
+    const base = 10;
+    var place = 1;
+    var unsorted = length;
+    var round = 1;
+    while (unsorted > 1) {
+      print('Round: ${round++}');
+      unsorted = 0;
+      final buckets = List.generate(base, (_) => <int>[]);
+      forEach((number) {
+        final remainingPart = number ~/ place;
+        final digit = remainingPart % base;
+        buckets[digit].add(number);
+        if (remainingPart ~/ base > 0) {
+          unsorted++;
+        }
+      });
+      place *= base;
+      clear();
+      addAll(buckets.expand((element) => element));
+    }
+  }
+}
