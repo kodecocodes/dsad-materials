@@ -5,6 +5,11 @@ import 'package:final_project/graph.dart';
 import 'package:final_project/depth_first_search.dart';
 
 void main() {
+  depthFirstSearch();
+  cycles();
+}
+
+void depthFirstSearch() {
   final graph = AdjacencyList<String>();
 
   final a = graph.createVertex('A');
@@ -28,4 +33,22 @@ void main() {
 
   final vertices = graph.depthFirstSearch(a);
   vertices.forEach(print);
+}
+
+void cycles() {
+  final graph = AdjacencyList<String>();
+
+  final a = graph.createVertex('A');
+  final b = graph.createVertex('B');
+  final c = graph.createVertex('C');
+  final d = graph.createVertex('D');
+
+  graph.addEdge(a, b, edgeType: EdgeType.directed);
+  graph.addEdge(a, c, edgeType: EdgeType.directed);
+  graph.addEdge(c, a, edgeType: EdgeType.directed);
+  graph.addEdge(b, c, edgeType: EdgeType.directed);
+  graph.addEdge(c, d, edgeType: EdgeType.directed);
+
+  print(graph);
+  print(graph.hasCycle(a));
 }

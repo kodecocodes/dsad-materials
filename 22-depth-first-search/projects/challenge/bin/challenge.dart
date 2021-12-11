@@ -8,7 +8,6 @@ import 'package:challenge/graph.dart';
 void main() {
   challengeOne();
   challengeTwo();
-  challengeThree();
 }
 
 /// Challenge 1: BFS or DFS
@@ -99,51 +98,5 @@ extension RecursiveDfs<E> on Graph<E> {
         _dfs(edge.destination, visited, pushed);
       }
     }
-  }
-}
-
-/// Challenge 3: Detect a cycle
-///
-/// A graph is said to have a **cycle** when a path of edges and vertices
-/// leads back to the same source. Add a method to `Graph` to detect if a
-/// **directed** graph has a cycle.
-void challengeThree() {
-  final graph = AdjacencyList<String>();
-
-  final a = graph.createVertex('A');
-  final b = graph.createVertex('B');
-  final c = graph.createVertex('C');
-  final d = graph.createVertex('D');
-
-  graph.addEdge(a, b, edgeType: EdgeType.directed);
-  graph.addEdge(a, c, edgeType: EdgeType.directed);
-  graph.addEdge(c, a, edgeType: EdgeType.directed);
-  graph.addEdge(b, c, edgeType: EdgeType.directed);
-  graph.addEdge(c, d, edgeType: EdgeType.directed);
-
-  print(graph);
-  print(graph.hasCycle(a));
-}
-
-extension CyclicGraph<E> on Graph<E> {
-  bool hasCycle(Vertex<E> source) {
-    Set<Vertex<E>> pushed = {};
-    return _hasCycle(source, pushed);
-  }
-
-  bool _hasCycle(Vertex<E> source, Set<Vertex<E>> pushed) {
-    pushed.add(source);
-    final neighbors = edges(source);
-    for (final edge in neighbors) {
-      if (!pushed.contains(edge.destination)) {
-        if (_hasCycle(edge.destination, pushed)) {
-          return true;
-        }
-      } else {
-        return true;
-      }
-    }
-    pushed.remove(source);
-    return false;
   }
 }
