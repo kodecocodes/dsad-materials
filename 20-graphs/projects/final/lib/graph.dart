@@ -116,6 +116,7 @@ class AdjacencyList<E> implements Graph<E> {
 class AdjacencyMatrix<E> implements Graph<E> {
   final List<Vertex<E>> _vertices = [];
   final List<List<double?>?> _weights = [];
+  var _nextIndex = 0;
 
   @override
   Iterable<Vertex<E>> get vertices => _vertices;
@@ -123,9 +124,10 @@ class AdjacencyMatrix<E> implements Graph<E> {
   @override
   Vertex<E> createVertex(E data) {
     final vertex = Vertex(
-      index: _vertices.length,
+      index: _nextIndex,
       data: data,
     );
+    _nextIndex++;
     _vertices.add(vertex);
     for (var i = 0; i < _weights.length; i++) {
       _weights[i]?.add(null);

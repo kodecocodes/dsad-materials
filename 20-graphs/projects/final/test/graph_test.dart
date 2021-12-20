@@ -54,6 +54,16 @@ void main() {
       graph.addEdge(a, b, weight: 3);
       expect(graph.weight(a, b), 3);
     });
+
+    test('index increments', () {
+      final graph = AdjacencyList<String>();
+      final a = graph.createVertex('a');
+      final b = graph.createVertex('b');
+      graph.addEdge(a, b);
+      final vertices = graph.vertices;
+      expect(vertices.first.index, 0);
+      expect(vertices.last.index, 1);
+    });
   });
 
   group('AdjacencyMatrix:', () {
@@ -103,6 +113,16 @@ void main() {
       expect(graph.weight(a, b), null);
       graph.addEdge(a, b, weight: 3);
       expect(graph.weight(a, b), 3);
+    });
+
+    test('index increments', () {
+      final graph = AdjacencyMatrix<String>();
+      final a = graph.createVertex('a');
+      final b = graph.createVertex('b');
+      graph.addEdge(a, b);
+      final vertices = graph.vertices;
+      expect(vertices.first.index, 0);
+      expect(vertices.last.index, 1);
     });
   });
 }
