@@ -142,11 +142,6 @@ extension RecursiveBfs<E> on Graph<E> {
 /// of a disconnected graph is shown below:
 ///
 /// - See the chapter for the image.
-///
-/// **Hint**: To help you solve this challenge, add a method named
-/// `allVertices` to the `Graph` interface and implement it in
-/// `AdjacencyMatrix` and `AdjacencyList`. Calling this method should
-/// return a list of all of the vertices in the graph.
 void challengeThree() {
   final graph = AdjacencyList<String>();
   final a = graph.createVertex('A');
@@ -176,7 +171,6 @@ void challengeThree() {
 // lib/graph.dart was modified to include an `allVertices` method.
 extension Connected<E> on Graph<E> {
   bool isConnected() {
-    final vertices = allVertices();
     if (vertices.isEmpty) return true;
     final visited = breadthFirstSearch(vertices.first);
     for (final vertex in vertices) {
