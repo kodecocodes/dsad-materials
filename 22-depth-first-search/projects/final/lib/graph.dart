@@ -29,6 +29,8 @@ class Edge<T> {
 enum EdgeType { directed, undirected }
 
 abstract class Graph<E> {
+  Iterable<Vertex<E>> get vertices;
+
   Vertex<E> createVertex(E data);
 
   void addEdge(
@@ -48,13 +50,18 @@ abstract class Graph<E> {
 
 class AdjacencyList<E> implements Graph<E> {
   final Map<Vertex<E>, List<Edge<E>>> _connections = {};
+  var _nextIndex = 0;
+
+  @override
+  Iterable<Vertex<E>> get vertices => _connections.keys;
 
   @override
   Vertex<E> createVertex(E data) {
     final vertex = Vertex(
-      index: _connections.length,
+      index: _nextIndex,
       data: data,
     );
+    _nextIndex++;
     _connections[vertex] = [];
     return vertex;
   }
@@ -109,13 +116,18 @@ class AdjacencyList<E> implements Graph<E> {
 class AdjacencyMatrix<E> implements Graph<E> {
   final List<Vertex<E>> _vertices = [];
   final List<List<double?>?> _weights = [];
+  var _nextIndex = 0;
+
+  @override
+  Iterable<Vertex<E>> get vertices => _vertices;
 
   @override
   Vertex<E> createVertex(E data) {
     final vertex = Vertex(
-      index: _vertices.length,
+      index: _nextIndex,
       data: data,
     );
+    _nextIndex++;
     _vertices.add(vertex);
     for (var i = 0; i < _weights.length; i++) {
       _weights[i]?.add(null);
