@@ -59,5 +59,20 @@ void main() {
       expect(range!.start, 0);
       expect(range.end, 1);
     });
+
+    // https://forums.raywenderlich.com/t/errata-for-data-structures-algorithms-in-kotlin-2nd-edition/143193/3
+    test('handles empty range', () {
+      final list = [0, 1, 3, 3];
+      final range = findRange(list, 2);
+      expect(range, null);
+    });
+
+    // https://forums.raywenderlich.com/t/errata-for-data-structures-algorithms-in-kotlin-2nd-edition/143193/3
+    test('handles finding first item in list of length 2', () {
+      final list = [0, 1];
+      final range = findRange(list, 0);
+      expect(range!.start, 0);
+      expect(range.end, 1);
+    });
   });
 }
