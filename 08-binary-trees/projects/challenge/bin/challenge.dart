@@ -79,7 +79,7 @@ int height(BinaryNode? node) {
 /// [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]
 /// ```
 ///
-/// The deserialization process should transform the array back into the same
+/// The deserialization process should transform the list back into the same
 /// binary tree. Note that there are many ways to perform serialization. You
 /// may choose any way you wish.
 void challengeTwo() {
