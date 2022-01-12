@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'priority_queue.dart';
+import 'package:challenge/priority_queue.dart';
 
 void main() {
   challengeOne();

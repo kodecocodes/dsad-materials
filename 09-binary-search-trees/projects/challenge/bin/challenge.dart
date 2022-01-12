@@ -1,8 +1,8 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'binary_search_tree.dart';
-import 'binary_node.dart';
+import 'package:challenge/binary_node.dart';
+import 'package:challenge/binary_search_tree.dart';
 
 void main() {
   challangeOne();

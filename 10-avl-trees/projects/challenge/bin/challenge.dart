@@ -3,7 +3,7 @@
 
 import 'dart:math' as math;
 
-import 'avl_tree.dart';
+import 'package:challenge/avl_tree.dart';
 
 void main() {
   challengeOne();

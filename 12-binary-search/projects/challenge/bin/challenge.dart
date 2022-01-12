@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'package:final_project/find_range.dart';
+import 'package:challenge/find_range.dart';
 
 void main() {
   challengeOne();

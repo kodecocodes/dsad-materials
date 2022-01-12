@@ -1,8 +1,8 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'binary_node.dart';
 import 'dart:math';
+import 'package:challenge/binary_node.dart';
 
 void main() {
   challengeOne();

@@ -2,7 +2,7 @@
 // For full license & permission details, see LICENSE.
 
 import 'package:challenge/heapsort.dart';
-import 'package:challenge/heapsort_ascending.dart';
+import 'package:challenge/heapsort_descending.dart';
 
 void main() {
   challengeOne();

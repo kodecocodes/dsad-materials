@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'linked_list.dart';
+import 'package:challenge/linked_list.dart';
 
 void main() {
   challengeOne();

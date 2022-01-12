@@ -1,3 +1,6 @@
+// Copyright (c) 2021 Razeware LLC
+// For full license & permission details, see LICENSE.
+
 import 'doubly_linked_list.dart';
 import 'ring_buffer.dart';
 

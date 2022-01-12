@@ -1,8 +1,8 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'merge_sort_1.dart' as challenge1;
-import 'merge_sort_2.dart' as challenge2;
+import 'package:challenge/merge_sort_1.dart' as challenge1;
+import 'package:challenge/merge_sort_2.dart' as challenge2;
 
 void main() {
   challengeOne();
@@ -20,7 +20,7 @@ void main() {
 /// time if you use breakpoints in your IDE or add `print` statements
 /// to your code.
 void challengeOne() {
-  // See the merge_sort_1.dart source code for the placement of the
+  // See the lib/merge_sort_1.dart source code for the placement of the
   // `print` statements.
   final list = [4, 2, 5, 1, 3];
   final sorted = challenge1.mergeSort(list);
@@ -41,7 +41,7 @@ void challengeOne() {
 /// )
 /// ```
 void challengeTwo() {
-  // See merge_sort_2.dart for the source code.
+  // See lib/merge_sort_2.dart for the source code.
   final list = [7, 2, 6, 3, 9];
   final sorted = challenge2.mergeSort(list);
   print(sorted);

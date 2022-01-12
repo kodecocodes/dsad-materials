@@ -1,8 +1,8 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'string_trie.dart';
-import 'trie.dart';
+import 'package:challenge/string_trie.dart';
+import 'package:challenge/trie.dart';
 
 void main() {
   challengeOne();
@@ -23,7 +23,7 @@ void main() {
 /// 3. An `isEmpty` property that returns `true` if the trie is empty, `false`
 ///    otherwise.
 void challengeOne() {
-  // See string_trie.dart for the implementation details.
+  // See lib/string_trie.dart for the implementation details.
   final trie = StringTrie();
   print(trie.isEmpty);
   trie.insert('cut');
@@ -39,7 +39,7 @@ void challengeOne() {
 /// named `Trie` that handles any iterable collection. Implement the `insert`,
 /// `contains` and `remove` methods.
 void challengeTwo() {
-  // See trie.dart for the implementation details.
+  // See lib/trie.dart for the implementation details.
   final trie = Trie<int, List<int>>();
   trie.insert('cut'.codeUnits);
   trie.insert('cute'.codeUnits);

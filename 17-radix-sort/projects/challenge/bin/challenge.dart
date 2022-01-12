@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'package:final_project/radix_sort.dart';
+import 'package:challenge/radix_sort.dart';
 
 void main() {
   challengeOne();

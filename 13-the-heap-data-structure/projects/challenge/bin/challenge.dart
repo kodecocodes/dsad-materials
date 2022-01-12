@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'heap.dart';
+import 'package:challenge/heap.dart';
 
 void main() {
   challengeOne();

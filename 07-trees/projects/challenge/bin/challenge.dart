@@ -1,8 +1,8 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'queue.dart';
-import 'tree.dart';
+import 'package:challenge/queue.dart';
+import 'package:challenge/tree.dart';
 
 void main() {
   challengeOne();

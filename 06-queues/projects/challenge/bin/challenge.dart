@@ -1,8 +1,8 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'doubly_linked_list.dart';
-import 'queue.dart';
+import 'package:challenge/doubly_linked_list.dart';
+import 'package:challenge/queue.dart';
 
 void main() {
   challengeOne();
