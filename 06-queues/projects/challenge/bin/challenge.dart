@@ -122,10 +122,10 @@ extension BoardGameManager<E> on QueueRingBuffer<E> {
 ///
 /// Deque can be considered both a queue and a stack at the same time.
 ///
-/// Below is a simple `Deque` interface to help you build your data structure.
-/// The enum `Direction` describes whether you are adding or removing an
-/// element from the front or back of the deque. You can use any data
-/// structure you prefer to construct a `Deque`.
+/// Your challenge is to build a deque. Below is a simple `Deque` interface to
+/// help you build your data structure. The enum `Direction` describes whether
+/// you are adding or removing an element from the front or back of the deque.
+/// You can use any data structure you prefer to construct a `Deque`.
 ///
 /// ```
 /// enum Direction {
