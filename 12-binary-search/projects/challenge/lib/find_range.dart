@@ -10,70 +10,51 @@ class Range {
   String toString() => 'Range($start, $end)';
 }
 
-Range? findRangeUnoptimized<E>(List<E> list, E value) {
+Range? findRangeUnoptimized(List<int> list, int value) {
   final start = list.indexOf(value);
   if (start == -1) return null;
   final end = list.lastIndexOf(value) + 1;
   return Range(start, end);
 }
 
-Range? findRange<E extends Comparable<dynamic>>(
-  List<E> list,
-  E value,
-) {
+Range? findRange(List<int> list, int value) {
   if (list.isEmpty) return null;
-  final start = _startIndex(list, value, Range(0, list.length));
-  if (start == null) return null;
-  final end = _endIndex(list, value, Range(0, list.length));
-  return Range(start, end!);
+  final start = _startIndex(list, value);
+  final end = _endIndex(list, value);
+  if (start == null || end == null) return null;
+  return Range(start, end);
 }
 
-int? _startIndex<E extends Comparable<dynamic>>(
-  List<E> list,
-  E value,
-  Range range,
-) {
-  final size = range.end - range.start;
-  final middle = range.start + size ~/ 2;
-
-  if (middle == 0 || middle == list.length - 1) {
-    if (list[middle] == value) {
+int? _startIndex(List<int> list, int value) {
+  if (list[0] == value) return 0;
+  var start = 1;
+  var end = list.length;
+  while (start < end) {
+    var middle = start + (end - start) ~/ 2;
+    if (list[middle] == value && list[middle - 1] != value) {
       return middle;
+    } else if (list[middle] < value) {
+      start = middle + 1;
     } else {
-      return null;
+      end = middle;
     }
   }
-
-  if (list[middle] == value && list[middle - 1] != value) {
-    return middle;
-  } else if (value.compareTo(list[middle]) > 0) {
-    return _startIndex(list, value, Range(middle, range.end));
-  } else {
-    return _startIndex(list, value, Range(range.start, middle));
-  }
+  return null;
 }
 
-int? _endIndex<E extends Comparable<dynamic>>(
-  List<E> list,
-  E value,
-  Range range,
-) {
-  final size = range.end - range.start;
-  final middle = range.start + size ~/ 2;
-
-  if (middle == 0 || middle == list.length - 1) {
-    if (list[middle] == value) {
+int? _endIndex(List<int> list, int value) {
+  if (list[list.length - 1] == value) return list.length;
+  var start = 0;
+  var end = list.length - 1;
+  while (start < end) {
+    var middle = start + (end - start) ~/ 2;
+    if (list[middle] == value && list[middle + 1] != value) {
       return middle + 1;
+    } else if (list[middle] > value) {
+      end = middle;
     } else {
-      return null;
+      start = middle + 1;
     }
   }
-
-  if (list[middle] == value && list[middle + 1] != value) {
-    return middle + 1;
-  } else if (value.compareTo(list[middle]) < 0) {
-    return _endIndex(list, value, Range(range.start, middle));
-  } else {
-    return _endIndex(list, value, Range(middle, range.end));
-  }
+  return null;
 }
