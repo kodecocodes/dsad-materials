@@ -7,7 +7,10 @@ import 'queue.dart';
 export 'heap.dart' show Priority;
 
 class PriorityQueue<E extends Comparable<dynamic>> implements Queue<E> {
-  PriorityQueue({List<E>? elements, Priority priority = Priority.max}) {
+  PriorityQueue({
+    List<E>? elements,
+    Priority priority = Priority.max,
+  }) {
     _heap = Heap<E>(elements: elements, priority: priority);
   }
 

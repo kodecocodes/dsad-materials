@@ -63,11 +63,17 @@ void challengeTwo() {
 }
 
 extension ShortestPaths<E> on Dijkstra<E> {
-  Map<Vertex<E>, List<Vertex<E>>> shortestPathsLists(Vertex<E> source) {
+  Map<Vertex<E>, List<Vertex<E>>> shortestPathsLists(
+    Vertex<E> source,
+  ) {
     final allPathsLists = <Vertex<E>, List<Vertex<E>>>{};
     final allPaths = shortestPaths(source);
     for (final vertex in graph.vertices) {
-      final path = shortestPath(source, vertex, paths: allPaths);
+      final path = shortestPath(
+        source,
+        vertex,
+        paths: allPaths,
+      );
       allPathsLists[vertex] = path;
     }
     return allPathsLists;

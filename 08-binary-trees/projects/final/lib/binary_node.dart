@@ -42,9 +42,19 @@ class BinaryNode<T> {
     if (node.leftChild == null && node.rightChild == null) {
       return '$root ${node.value}\n';
     }
-    final a = _diagram(node.rightChild, '$top ', '$top┌──', '$top│ ');
+    final a = _diagram(
+      node.rightChild,
+      '$top ',
+      '$top┌──',
+      '$top│ ',
+    );
     final b = '$root${node.value}\n';
-    final c = _diagram(node.leftChild, '$bottom│ ', '$bottom└──', '$bottom ');
+    final c = _diagram(
+      node.leftChild,
+      '$bottom│ ',
+      '$bottom└──',
+      '$bottom ',
+    );
     return '$a$b$c';
   }
 }

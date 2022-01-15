@@ -1,12 +1,20 @@
 // Copyright (c) 2021 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-List<E> quicksortNaive<E extends Comparable<dynamic>>(List<E> list) {
+List<E> quicksortNaive<E extends Comparable<dynamic>>(
+  List<E> list,
+) {
   if (list.length < 2) return list;
   final pivot = list[0];
-  final less = list.where((value) => value.compareTo(pivot) < 0);
-  final equal = list.where((value) => value.compareTo(pivot) == 0);
-  final greater = list.where((value) => value.compareTo(pivot) > 0);
+  final less = list.where(
+    (value) => value.compareTo(pivot) < 0,
+  );
+  final equal = list.where(
+    (value) => value.compareTo(pivot) == 0,
+  );
+  final greater = list.where(
+    (value) => value.compareTo(pivot) > 0,
+  );
   return [
     ...quicksortNaive(less.toList()),
     ...equal,

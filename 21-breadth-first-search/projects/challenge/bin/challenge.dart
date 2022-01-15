@@ -120,8 +120,11 @@ extension RecursiveBfs<E> on Graph<E> {
     return visited;
   }
 
-  void _bfs(QueueStack<Vertex<E>> queue, Set<Vertex<E>> enqueued,
-      List<Vertex<E>> visited) {
+  void _bfs(
+    QueueStack<Vertex<E>> queue,
+    Set<Vertex<E>> enqueued,
+    List<Vertex<E>> visited,
+  ) {
     final vertex = queue.dequeue();
     if (vertex == null) return;
     visited.add(vertex);
