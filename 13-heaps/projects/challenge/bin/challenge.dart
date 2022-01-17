@@ -13,7 +13,7 @@ void main() {
 /// Challenge 1: Find the nth smallest integer
 ///
 /// Write a function to find the nth smallest integer in an unsorted list.
-/// For example:
+/// For example, given the following list:
 ///
 /// ```
 /// final integers = [3, 10, 18, 5, 21, 100];
