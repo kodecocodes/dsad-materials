@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo ========= Chapter 2 ==========
+(cd ../02-complexity/projects/final; dart test)
+
 echo ========= Chapter 4 ==========
 (cd ../04-stacks/projects/final; dart test)
 
