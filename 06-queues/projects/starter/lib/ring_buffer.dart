@@ -40,7 +40,8 @@ class RingBuffer<E> {
     final text = StringBuffer();
     text.write('[');
 
-    for (int index = _readIndex; index != _writeIndex; index = _advance(index)) {
+    int noe = _size; // noe - Number Of Elements
+    for (int index = _readIndex; noe > 0; index = _advance(index), --noe) {
       if (index != _readIndex) {
         text.write(', ');
       }
