@@ -1,6 +1,2 @@
-# Files and directories created by pub.
+# Created by `dart pub`
 .dart_tool/
-.packages
-
-# Conventional directory for build output.
-build/
