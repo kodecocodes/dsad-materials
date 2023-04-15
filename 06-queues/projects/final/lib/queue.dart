@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Razeware LLC
+// Copyright (c) 2023 Kodeco Inc.
 // For full license & permission details, see LICENSE.
 
 import 'doubly_linked_list.dart';
