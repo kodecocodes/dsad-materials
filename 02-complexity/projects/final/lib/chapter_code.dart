@@ -23,24 +23,27 @@ void printMoreNames(List<String> names) {
   }
 }
 
-bool naiveContains(int value, List<int> list) {
+bool naiveSearch(int value, List<int> list) {
   for (final element in list) {
     if (element == value) return true;
   }
   return false;
 }
 
-bool betterNaiveContains(int value, List<int> list) {
-  if (list.isEmpty) return false;
-  final middleIndex = list.length ~/ 2;
+bool betterSearch(int value, List<int> list) {
+  int left = 0;
+  int right = list.length - 1;
 
-  if (value > list[middleIndex]) {
-    for (var i = middleIndex; i < list.length; i++) {
-      if (list[i] == value) return true;
-    }
-  } else {
-    for (var i = middleIndex; i >= 0; i--) {
-      if (list[i] == value) return true;
+  while (left <= right) {
+    final size = right - left;
+    int middle = left + size ~/ 2;
+
+    if (list[middle] == value) {
+      return true;
+    } else if (list[middle] < value) {
+      left = middle + 1;
+    } else {
+      right = middle - 1;
     }
   }
 

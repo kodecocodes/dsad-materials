@@ -20,9 +20,9 @@ void main() {
 
   // Logarithmic time
   const numbers = [1, 3, 56, 66, 68, 80, 99, 105, 450];
-  var exists = naiveContains(451, numbers);
+  var exists = naiveSearch(451, numbers);
   print(exists);
-  exists = betterNaiveContains(451, numbers);
+  exists = betterSearch(451, numbers);
   print(exists);
 
   // Comparing time complexity
@@ -32,6 +32,7 @@ void main() {
   final time = end.difference(start);
   print(sum);
   print(time);
+
   final start2 = DateTime.now();
   final sum2 = betterSumFromOneTo(10000);
   final end2 = DateTime.now();
