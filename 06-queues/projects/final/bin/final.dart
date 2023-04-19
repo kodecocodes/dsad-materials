@@ -5,7 +5,7 @@ import 'package:final_project/queue.dart';
 
 void main() {
   queueListExample();
-  queueDoublyLinkedListExample();
+  queueLinkedListExample();
   queueRingBufferExample();
   queueDoubleStackExample();
 }
@@ -24,7 +24,7 @@ void queueListExample() {
   print(queue);
 }
 
-void queueDoublyLinkedListExample() {
+void queueLinkedListExample() {
   final queue = QueueLinkedList<String>();
   queue.enqueue('Ray');
   queue.enqueue('Brian');

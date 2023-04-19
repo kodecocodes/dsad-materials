@@ -1,7 +1,7 @@
 // Copyright (c) 2023 Kodeco Inc.
 // For full license & permission details, see LICENSE.
 
-import 'package:challenge/doubly_linked_list.dart';
+import 'package:challenge/deque.dart';
 import 'package:challenge/queue.dart';
 
 void main() {
@@ -141,7 +141,7 @@ extension BoardGameManager<E> on QueueRingBuffer<E> {
 /// }
 /// ```
 void challengeFour() {
-  final deque = DequeDoublyLinkedList<int>();
+  final deque = DequeLinkedList<int>();
   deque.enqueue(1, Direction.back);
   deque.enqueue(2, Direction.back);
   deque.enqueue(3, Direction.back);
@@ -161,59 +161,4 @@ void challengeFour() {
   deque.dequeue(Direction.front);
 
   print(deque);
-}
-
-enum Direction {
-  front,
-  back,
-}
-
-abstract class Deque<E> {
-  bool get isEmpty;
-  E? peek(Direction from);
-  bool enqueue(E element, Direction to);
-  E? dequeue(Direction from);
-}
-
-class DequeDoublyLinkedList<E> implements Deque<E> {
-  final _list = DoublyLinkedList<E>();
-
-  @override
-  E? dequeue(Direction from) {
-    switch (from) {
-      case Direction.front:
-        return _list.pop();
-      case Direction.back:
-        return _list.removeLast();
-    }
-  }
-
-  @override
-  bool enqueue(E value, Direction to) {
-    switch (to) {
-      case Direction.front:
-        _list.push(value);
-        break;
-      case Direction.back:
-        _list.append(value);
-        break;
-    }
-    return true;
-  }
-
-  @override
-  bool get isEmpty => _list.isEmpty;
-
-  @override
-  E? peek(Direction from) {
-    switch (from) {
-      case Direction.front:
-        return _list.head?.value;
-      case Direction.back:
-        return _list.tail?.value;
-    }
-  }
-
-  @override
-  String toString() => _list.toString();
 }

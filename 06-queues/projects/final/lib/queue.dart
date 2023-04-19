@@ -1,7 +1,7 @@
 // Copyright (c) 2023 Kodeco Inc.
 // For full license & permission details, see LICENSE.
 
-import 'doubly_linked_list.dart';
+import 'linked_list.dart';
 import 'ring_buffer.dart';
 
 abstract class Queue<E> {
@@ -34,7 +34,7 @@ class QueueList<E> implements Queue<E> {
 }
 
 class QueueLinkedList<E> implements Queue<E> {
-  final _list = DoublyLinkedList<E>();
+  final _list = LinkedList<E>();
 
   @override
   bool enqueue(E element) {

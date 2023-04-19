@@ -96,7 +96,7 @@ void main() {
       final queue = QueueLinkedList<int>();
       queue.enqueue(1);
       queue.enqueue(2);
-      expect(queue.toString(), '[1, 2]');
+      expect(queue.toString(), '1 -> 2');
     });
   });
 
