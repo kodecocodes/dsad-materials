@@ -8,8 +8,15 @@ class Node<T> {
 
   @override
   String toString() {
-    if (next == null) return '$value';
-    return '$value -> ${next.toString()}';
+    StringBuffer buffer = StringBuffer();
+    Node<T>? currentNode = this;
+    while (true) {
+      buffer.write(currentNode?.value);
+      currentNode = currentNode?.next;
+      if (currentNode == null) break;
+      buffer.write(' -> ');
+    }
+    return buffer.toString();
   }
 }
 
@@ -36,7 +43,7 @@ class LinkedList<E> extends Iterable<E> {
     var currentIndex = 0;
     while (currentNode != null && currentIndex < index) {
       currentNode = currentNode.next;
-      currentIndex += 1;
+      currentIndex++;
     }
     return currentNode;
   }

@@ -1,48 +1,17 @@
 // Copyright (c) 2023 Kodeco Inc.
 // For full license & permission details, see LICENSE.
 
+import 'package:challenge/doubly_linked_list.dart' show DoublyLinkedList;
 import 'package:challenge/linked_list.dart';
 
 void main() {
   challengeOne();
   challengeTwo();
   challengeThree();
-  challengeFour();
+  whereToGoFromHereChallenge();
 }
 
-/// Challenge 1: Print in reverse
-///
-/// Create a function that prints the nodes of a linked list in reverse
-/// order. For example:
-///
-/// 1 -> 2 -> 3 -> null
-///
-/// should print out the following:
-/// 3
-/// 2
-/// 1
-void challengeOne() {
-  var list = LinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(1);
-
-  print('Original list: $list');
-  print("Printing in reverse:");
-  printListInReverse(list);
-}
-
-void printListInReverse<E>(LinkedList<E> list) {
-  printNodesRecursively(list.head);
-}
-
-void printNodesRecursively<T>(Node<T>? node) {
-  if (node == null) return;
-  printNodesRecursively(node.next);
-  print(node.value);
-}
-
-/// Challenge 2: Find the middle node
+/// Challenge 1: Find the middle node
 ///
 /// Create a function that finds the middle node of a linked list.
 /// For example:
@@ -52,7 +21,7 @@ void printNodesRecursively<T>(Node<T>? node) {
 ///
 /// 1 -> 2 -> 3 -> null
 /// middle is 2
-void challengeTwo() {
+void challengeOne() {
   var list = LinkedList<int>();
   list.push(3);
   list.push(2);
@@ -75,7 +44,7 @@ Node<E>? getMiddle<E>(LinkedList<E> list) {
   return slow;
 }
 
-/// Challenge 3: Reverse a linked list
+/// Challenge 2: Reverse a linked list
 ///
 /// Create a function that reverses a linked list. You do this by
 /// manipulating the nodes so that they’re linked in the other direction.
@@ -86,7 +55,7 @@ Node<E>? getMiddle<E>(LinkedList<E> list) {
 ///
 /// after
 /// 3 -> 2 -> 1 -> null
-void challengeThree() {
+void challengeTwo() {
   var list = LinkedList<int>();
   list.push(3);
   list.push(2);
@@ -123,7 +92,7 @@ extension ReversibleLinkedList<E> on LinkedList<E> {
   }
 }
 
-/// Challenge 4: Remove all occurrences
+/// Challenge 3: Remove all occurrences
 ///
 /// Create a function that removes all occurrences of a specific element
 /// from a linked list. The implementation is similar to the removeAfter
@@ -136,7 +105,7 @@ extension ReversibleLinkedList<E> on LinkedList<E> {
 /// list after removing all occurrences of 3
 /// 1 -> 4
 /// ```
-void challengeFour() {
+void challengeThree() {
   var list = LinkedList<int>();
   list.push(3);
   list.push(2);
@@ -168,23 +137,16 @@ extension RemovableLinkedList<E> on LinkedList {
   }
 }
 
-// extension RemovableLinkedList<E> on LinkedList {
-//   void removeAll(E value) {
-//     while (head != null && head!.value == value) {
-//       head = head!.next;
-//     }
-
-//     var previous = head;
-//     var current = head?.next;
-//     while (current != null) {
-//       if (current.value == value) {
-//         previous?.next = current.next;
-//         current = previous?.next;
-//         continue;
-//       }
-//       previous = current;
-//       current = current.next;
-//     }
-//     tail = previous;
-//   }
-// }
+/// Where to Go From Here Challenge
+///
+/// Implement a doubly linked list.
+void whereToGoFromHereChallenge() {
+  final list = DoublyLinkedList<int>();
+  list.push(3);
+  list.append(2);
+  list.append(1);
+  print(list);
+  list.removeLast();
+  list.pop();
+  print(list);
+}

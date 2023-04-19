@@ -7,6 +7,7 @@ echo ========= Chapter 4 ==========
 (cd ../04-stacks/projects/final; dart test)
 
 echo ========= Chapter 5 ==========
+(cd ../05-linked-lists/projects/challenge; dart test)
 (cd ../05-linked-lists/projects/final; dart test)
 
 echo ========= Chapter 6 ==========
