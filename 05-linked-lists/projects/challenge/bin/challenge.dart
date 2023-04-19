@@ -106,7 +106,7 @@ extension ReversibleLinkedList<E> on LinkedList<E> {
 /// 1 -> 4
 /// ```
 void challengeThree() {
-  var list = LinkedList<int>();
+  final list = LinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(2);
