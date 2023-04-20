@@ -93,6 +93,7 @@ void printEachLevel<T>(TreeNode<T> tree) {
 ///
 /// Use your widget nodes to build a simple widget tree.
 void challengeTwo() {
+  // ignore: unused_local_variable
   final tree = Column(
     children: [
       Padding(
