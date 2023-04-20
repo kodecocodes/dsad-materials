@@ -3,7 +3,7 @@
 
 import 'binary_node.dart';
 
-class BinarySearchTree<E extends Comparable<dynamic>> {
+class BinarySearchTree<E extends Comparable<E>> {
   BinaryNode<E>? root;
 
   void insert(E value) {

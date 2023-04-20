@@ -11,7 +11,7 @@ void main() {
 }
 
 void insertingElementsUnbalanced() {
-  final tree = BinarySearchTree<int>();
+  final tree = BinarySearchTree<num>();
   for (var i = 0; i < 5; i++) {
     tree.insert(i);
   }
@@ -24,7 +24,7 @@ void insertingElementsBalanced() {
 }
 
 BinarySearchTree<num> buildExampleTree() {
-  var tree = BinarySearchTree<int>();
+  var tree = BinarySearchTree<num>();
   tree.insert(3);
   tree.insert(1);
   tree.insert(4);
