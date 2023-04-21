@@ -4,7 +4,7 @@
 import 'avl_node.dart';
 import 'dart:math' as math;
 
-class AvlTree<E extends Comparable<dynamic>> {
+class AvlTree<E extends Comparable<E>> {
   AvlNode<E>? root;
 
   void insert(E value) {
@@ -30,13 +30,9 @@ class AvlTree<E extends Comparable<dynamic>> {
   }
 
   AvlNode<E> leftRotate(AvlNode<E> node) {
-    // 1
     final pivot = node.rightChild!;
-    // 2
     node.rightChild = pivot.leftChild;
-    // 3
     pivot.leftChild = node;
-    // 4
     node.height = 1 +
         math.max(
           node.leftHeight,
@@ -47,7 +43,6 @@ class AvlTree<E extends Comparable<dynamic>> {
           pivot.leftHeight,
           pivot.rightHeight,
         );
-    // 5
     return pivot;
   }
 

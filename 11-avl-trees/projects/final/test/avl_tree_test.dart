@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 void main() {
   group('AVL tree:', () {
     test('height and balance factor', () {
-      final tree = AvlTree<int>();
+      final tree = AvlTree<num>();
       tree.insert(50);
       expect(tree.root?.height, 0);
       tree.insert(25);
@@ -25,7 +25,7 @@ void main() {
     });
 
     test('left rotation', () {
-      final tree = AvlTree<int>();
+      final tree = AvlTree<num>();
       tree.insert(25);
       tree.insert(37);
       tree.insert(40);
@@ -33,7 +33,7 @@ void main() {
     });
 
     test('right rotation', () {
-      final tree = AvlTree<int>();
+      final tree = AvlTree<num>();
       tree.insert(25);
       tree.insert(20);
       tree.insert(15);
@@ -41,7 +41,7 @@ void main() {
     });
 
     test('right-left rotation', () {
-      final tree = AvlTree<int>();
+      final tree = AvlTree<num>();
       tree.insert(25);
       tree.insert(37);
       tree.insert(36);
@@ -49,7 +49,7 @@ void main() {
     });
 
     test('left-right rotation', () {
-      final tree = AvlTree<int>();
+      final tree = AvlTree<num>();
       tree.insert(25);
       tree.insert(10);
       tree.insert(15);
@@ -57,7 +57,7 @@ void main() {
     });
 
     test('removing elements maintains balanced tree', () {
-      final tree = AvlTree<int>();
+      final tree = AvlTree<num>();
       tree.insert(15);
       tree.insert(10);
       tree.insert(16);

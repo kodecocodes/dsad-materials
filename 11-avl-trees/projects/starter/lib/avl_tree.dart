@@ -3,7 +3,7 @@
 
 import 'avl_node.dart';
 
-class AvlTree<E extends Comparable<dynamic>> {
+class AvlTree<E extends Comparable<E>> {
   AvlNode<E>? root;
 
   void insert(E value) {

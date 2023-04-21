@@ -59,7 +59,7 @@ int nodesFasterSolution(int height) {
 /// these methods for free. Have `AvlNode` conform to this.
 void challengeThree() {
   // See avl_node.dart for the updates.
-  final tree = AvlTree<int>();
+  final tree = AvlTree<num>();
   for (var i = 0; i < 15; i++) {
     tree.insert(i);
   }

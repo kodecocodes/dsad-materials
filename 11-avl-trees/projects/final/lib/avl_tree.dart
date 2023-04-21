@@ -4,7 +4,7 @@
 import 'avl_node.dart';
 import 'dart:math' as math;
 
-class AvlTree<E extends Comparable<dynamic>> {
+class AvlTree<E extends Comparable<E>> {
   AvlNode<E>? root;
 
   void insert(E value) {

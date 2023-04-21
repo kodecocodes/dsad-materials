@@ -9,7 +9,7 @@ void main() {
 }
 
 void inserting() {
-  final tree = AvlTree<int>();
+  final tree = AvlTree<num>();
   for (var i = 0; i < 15; i++) {
     tree.insert(i);
   }
@@ -17,7 +17,7 @@ void inserting() {
 }
 
 void removing() {
-  final tree = AvlTree<int>();
+  final tree = AvlTree<num>();
   tree.insert(15);
   tree.insert(10);
   tree.insert(16);
