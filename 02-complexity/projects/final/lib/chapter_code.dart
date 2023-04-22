@@ -31,19 +31,19 @@ bool naiveSearch(int value, List<int> list) {
 }
 
 bool betterSearch(int value, List<int> list) {
-  int left = 0;
-  int right = list.length - 1;
+  int start = 0;
+  int end = list.length;
 
-  while (left <= right) {
-    final size = right - left;
-    int middle = left + size ~/ 2;
+  while (start < end) {
+    final size = end - start;
+    int middle = start + size ~/ 2;
 
     if (list[middle] == value) {
       return true;
     } else if (list[middle] < value) {
-      left = middle + 1;
+      start = middle + 1;
     } else {
-      right = middle - 1;
+      end = middle;
     }
   }
 

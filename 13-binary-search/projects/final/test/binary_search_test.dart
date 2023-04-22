@@ -7,12 +7,12 @@ import 'package:test/test.dart';
 void main() {
   group('binarySearch:', () {
     test('empty list', () {
-      final list = <int>[];
+      final list = <num>[];
       expect(list.binarySearch(1), isNull);
     });
 
     test('normal list', () {
-      final list = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
+      final list = <num>[1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
       expect(list.binarySearch(1), 0);
       expect(list.binarySearch(5), 1);
       expect(list.binarySearch(15), 2);

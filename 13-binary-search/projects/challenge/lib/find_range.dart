@@ -2,7 +2,7 @@
 // For full license & permission details, see LICENSE.
 
 class Range {
-  Range(this.start, this.end);
+  const Range(this.start, this.end);
   final int start;
   final int end;
 
@@ -30,7 +30,8 @@ int? _startIndex(List<int> list, int value) {
   var start = 1;
   var end = list.length;
   while (start < end) {
-    var middle = start + (end - start) ~/ 2;
+    final size = end - start;
+    final middle = start + size ~/ 2;
     if (list[middle] == value && list[middle - 1] != value) {
       return middle;
     } else if (list[middle] < value) {
@@ -47,7 +48,8 @@ int? _endIndex(List<int> list, int value) {
   var start = 0;
   var end = list.length - 1;
   while (start < end) {
-    var middle = start + (end - start) ~/ 2;
+    final size = end - start;
+    final middle = start + size ~/ 2;
     if (list[middle] == value && list[middle + 1] != value) {
       return middle + 1;
     } else if (list[middle] > value) {

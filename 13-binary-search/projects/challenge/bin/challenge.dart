@@ -9,7 +9,7 @@ void main() {
   challengeThree();
 }
 
-/// Challenge 1: Binary search as a free function
+/// Challenge 1: Binary Search as a Free Function
 ///
 /// In this chapter, you implemented binary search as an extension
 /// of `List`. Since binary search only works on sorted lists, exposing
@@ -18,60 +18,61 @@ void main() {
 ///
 /// Your challenge is to implement binary search as a free function.
 void challengeOne() {
-  int? binarySearch<E extends Comparable<dynamic>>(
-    List<E> list,
-    E value, [
-    int? start,
-    int? end,
-  ]) {
-    final startIndex = start ?? 0;
-    final endIndex = end ?? list.length;
-    if (startIndex >= endIndex) {
-      return null;
-    }
-    final size = endIndex - startIndex;
-    final middle = startIndex + size ~/ 2;
-    if (list[middle] == value) {
-      return middle;
-    } else if (value.compareTo(list[middle]) < 0) {
-      return binarySearch(list, value, startIndex, middle);
-    } else {
-      return binarySearch(list, value, middle + 1, endIndex);
-    }
-  }
-
-  final list = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
-  final index = binarySearch(list, 31);
-  print('Found at index $index');
-}
-
-/// Challenge 2: Non-recursive search
-///
-/// Does recursion make your brain hurt? No worries, you can always perform
-/// the same task in a non-recursive way. Re-implement `binarySearch` using
-/// a `while` loop.
-void challengeTwo() {
-  int? binarySearch<E extends Comparable<dynamic>>(
-    List<E> list,
-    E value,
-  ) {
+  int? binarySearch<E extends Comparable<E>>(List<E> list, E value) {
     var start = 0;
     var end = list.length;
     while (start < end) {
-      final middle = start + (end - start) ~/ 2;
-      if (value == list[middle]) {
+      final size = end - start;
+      final middle = start + size ~/ 2;
+      if (list[middle] == value) {
         return middle;
-      } else if (value.compareTo(list[middle]) < 0) {
-        end = middle;
-      } else {
+      } else if (list[middle].compareTo(value) < 0) {
         start = middle + 1;
+      } else {
+        end = middle;
       }
     }
     return null;
   }
 
   final list = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
-  final index = binarySearch(list, 31);
+  final index = binarySearch<num>(list, 31);
+  print('Found at index $index');
+}
+
+/// Challenge 2: Recursive Search
+///
+/// Since a sorted list isn't a tree-like data structure, you didn't need to use
+/// recursion to perform the binary search. But that doesn't mean you can't.
+/// Just for fun, write `binarySearch` as a recursive function.
+void challengeTwo() {
+  int? binarySearch<E extends Comparable<E>>(
+    List<E> list,
+    E value, [
+    int? startIndex,
+    int? endIndex,
+  ]) {
+    final start = startIndex ?? 0;
+    final end = endIndex ?? list.length;
+
+    if (start >= end) {
+      return null;
+    }
+
+    final size = end - start;
+    final middle = start + size ~/ 2;
+
+    if (list[middle] == value) {
+      return middle;
+    } else if (list[middle].compareTo(value) < 0) {
+      return binarySearch(list, value, middle + 1, end);
+    } else {
+      return binarySearch(list, value, start, middle);
+    }
+  }
+
+  final list = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
+  final index = binarySearch<num>(list, 31);
   print('Found at index $index');
 }
 
