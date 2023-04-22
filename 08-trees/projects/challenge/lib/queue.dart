@@ -23,8 +23,8 @@ class QueueStack<E> implements Queue<E> {
   @override
   E? dequeue() {
     if (_leftStack.isEmpty) {
-      _leftStack.addAll(_rightStack.reversed); // 1
-      _rightStack.clear(); // 2
+      _leftStack.addAll(_rightStack.reversed);
+      _rightStack.clear();
     }
     if (_leftStack.isEmpty) return null;
     return _leftStack.removeLast();

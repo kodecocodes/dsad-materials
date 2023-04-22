@@ -30,13 +30,9 @@ class AvlTree<E extends Comparable<E>> {
   }
 
   AvlNode<E> leftRotate(AvlNode<E> node) {
-    // 1
     final pivot = node.rightChild!;
-    // 2
     node.rightChild = pivot.leftChild;
-    // 3
     pivot.leftChild = node;
-    // 4
     node.height = 1 +
         math.max(
           node.leftHeight,
@@ -47,7 +43,6 @@ class AvlTree<E extends Comparable<E>> {
           pivot.leftHeight,
           pivot.rightHeight,
         );
-    // 5
     return pivot;
   }
 
