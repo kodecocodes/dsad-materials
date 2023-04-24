@@ -8,7 +8,7 @@ void main() {
   challengeTwo();
 }
 
-/// Challenge 1: Prioritize a waitlist
+/// Challenge 1: Prioritize a Waitlist
 ///
 /// Your favorite concert was sold out. Fortunately, there's a waitlist for
 /// people who still want to go! However, ticket sales will first prioritize
@@ -61,13 +61,13 @@ class Person extends Comparable<Person> {
   }
 }
 
-/// Challenge 2: List-based priority queue
+/// Challenge 2: List-Based Priority Queue
 ///
 /// You've learned how to construct a priority queue by implementing the
 /// `Queue` interface with an internal heap data structure. Now your challenge
 /// is to do it again, but this time with a `List`.
 void challengeTwo() {
-  final priorityQueue = PriorityQueueList(
+  final priorityQueue = PriorityQueueList<num>(
     elements: [1, 12, 3, 4, 1, 6, 8, 7],
   );
   print(priorityQueue);
@@ -89,7 +89,7 @@ abstract class Queue<E> {
 
 enum Priority { max, min }
 
-class PriorityQueueList<E extends Comparable<dynamic>> implements Queue<E> {
+class PriorityQueueList<E extends Comparable<E>> implements Queue<E> {
   PriorityQueueList({List<E>? elements, Priority priority = Priority.max}) {
     _priority = priority;
     _elements = elements ?? [];
