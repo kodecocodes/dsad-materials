@@ -3,7 +3,7 @@
 
 enum Priority { max, min }
 
-class Heap<E extends Comparable<dynamic>> {
+class Heap<E extends Comparable<E>> {
   Heap({List<E>? elements, this.priority = Priority.max}) {
     this.elements = (elements == null) ? [] : elements;
     _buildHeap();

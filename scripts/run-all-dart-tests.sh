@@ -34,6 +34,7 @@ echo ========= Chapter 13 ==========
 (cd ../13-binary-search/projects/final; dart test)
 
 echo ========= Chapter 14 ==========
+(cd ../14-heaps/projects/challenge; dart test)
 (cd ../14-heaps/projects/final; dart test)
 
 echo ========= Chapter 15 ==========

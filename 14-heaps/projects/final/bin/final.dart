@@ -13,7 +13,7 @@ void main() {
 }
 
 void inserting() {
-  final heap = Heap<int>();
+  final heap = Heap<num>();
   heap.insert(8);
   heap.insert(6);
   heap.insert(5);
@@ -28,7 +28,7 @@ void inserting() {
 }
 
 void removingRoot() {
-  final heap = Heap<int>();
+  final heap = Heap<num>();
   heap.insert(10);
   heap.insert(8);
   heap.insert(5);
@@ -44,7 +44,7 @@ void removingRoot() {
 }
 
 void removingArbitraryNode() {
-  final heap = Heap<int>();
+  final heap = Heap<num>();
   heap.insert(10);
   heap.insert(7); // remove this
   heap.insert(2);
@@ -57,7 +57,7 @@ void removingArbitraryNode() {
 }
 
 void searchingForElement() {
-  final heap = Heap<int>();
+  final heap = Heap<num>();
   heap.insert(10);
   heap.insert(7);
   heap.insert(2);
@@ -70,7 +70,7 @@ void searchingForElement() {
 }
 
 void acceptingListInConstructorMax() {
-  var heap = Heap(elements: [1, 12, 3, 4, 1, 6, 8, 7]);
+  var heap = Heap<num>(elements: [1, 12, 3, 4, 1, 6, 8, 7]);
   print(heap);
 
   while (!heap.isEmpty) {
@@ -79,7 +79,7 @@ void acceptingListInConstructorMax() {
 }
 
 void acceptingListInConstructorMin() {
-  var heap = Heap(
+  var heap = Heap<num>(
     elements: [1, 12, 3, 4, 1, 6, 8, 7],
     priority: Priority.min,
   );

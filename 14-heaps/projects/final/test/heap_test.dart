@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 void main() {
   group('Max heap:', () {
     test('basic getters', () {
-      final heap = Heap<int>();
+      final heap = Heap<num>();
       expect(heap.isEmpty, true);
       expect(heap.peek, null);
       expect(heap.size, 0);
@@ -20,7 +20,7 @@ void main() {
     });
 
     test('inserting in natural order (no sifting required)', () {
-      final heap = Heap<int>();
+      final heap = Heap<num>();
       heap.insert(10);
       expect(heap.elements, [10]);
       heap.insert(8);
@@ -40,7 +40,7 @@ void main() {
     });
 
     test('inserting that requires sifting', () {
-      final heap = Heap<int>();
+      final heap = Heap<num>();
       heap.insert(8);
       expect(heap.elements, [8]);
       heap.insert(10);
@@ -60,14 +60,14 @@ void main() {
     });
 
     test('Constructor sorts heap', () {
-      var heap = Heap<int>(elements: [10, 8, 4, 7, 1, 2, 3, 5]);
+      var heap = Heap<num>(elements: [10, 8, 4, 7, 1, 2, 3, 5]);
       expect(heap.elements, [10, 8, 4, 7, 1, 2, 3, 5]);
-      heap = Heap<int>(elements: [8, 10, 3, 5, 1, 2, 4, 7]);
+      heap = Heap<num>(elements: [8, 10, 3, 5, 1, 2, 4, 7]);
       expect(heap.elements, [10, 8, 4, 7, 1, 2, 3, 5]);
     });
 
     test('removing from max heap returns higher value', () {
-      final heap = Heap<int>();
+      final heap = Heap<num>();
       heap.insert(10);
       heap.insert(8);
       heap.insert(5);
@@ -116,13 +116,13 @@ void main() {
     });
 
     test('indexOf in empty heap', () {
-      final heap = Heap<int>();
+      final heap = Heap<num>();
       var index = heap.indexOf(10);
       expect(index, -1);
     });
 
     test('indexOf returns index of value', () {
-      final heap = Heap<int>(elements: [10, 8, 4, 7, 1, 2, 3, 5]);
+      final heap = Heap<num>(elements: [10, 8, 4, 7, 1, 2, 3, 5]);
       var index = heap.indexOf(10);
       expect(index, 0);
       index = heap.indexOf(8);
@@ -144,7 +144,7 @@ void main() {
     });
 
     test('indexOf with min index', () {
-      final heap = Heap<int>(elements: [10, 10, 4, 7, 1, 2, 3, 5]);
+      final heap = Heap<num>(elements: [10, 10, 4, 7, 1, 2, 3, 5]);
       var index = heap.indexOf(10, index: 0);
       expect(index, 0);
       index = heap.indexOf(10, index: 1);
@@ -156,7 +156,7 @@ void main() {
 
   group('Min heap:', () {
     test('inserting in natural order (no sifting required)', () {
-      final heap = Heap<int>(priority: Priority.min);
+      final heap = Heap<num>(priority: Priority.min);
       heap.insert(1);
       expect(heap.elements, [1]);
       heap.insert(3);
@@ -168,7 +168,7 @@ void main() {
     });
 
     test('inserting that requires sifting', () {
-      final heap = Heap<int>(priority: Priority.min);
+      final heap = Heap<num>(priority: Priority.min);
       heap.insert(8);
       expect(heap.elements, [8]);
       heap.insert(2);
@@ -180,12 +180,12 @@ void main() {
     });
 
     test('Constructor sorts heap', () {
-      var heap = Heap<int>(
+      var heap = Heap<num>(
         elements: [1, 3, 2, 8],
         priority: Priority.min,
       );
       expect(heap.elements, [1, 3, 2, 8]);
-      heap = Heap<int>(
+      heap = Heap<num>(
         elements: [8, 2, 1, 3],
         priority: Priority.min,
       );
@@ -193,7 +193,7 @@ void main() {
     });
 
     test('removing from min heap returns lower value', () {
-      var heap = Heap<int>(
+      var heap = Heap<num>(
         elements: [1, 3, 2, 8],
         priority: Priority.min,
       );
@@ -220,13 +220,13 @@ void main() {
     });
 
     test('indexOf in empty heap', () {
-      final heap = Heap<int>(priority: Priority.min);
+      final heap = Heap<num>(priority: Priority.min);
       var index = heap.indexOf(10);
       expect(index, -1);
     });
 
     test('indexOf returns index of value', () {
-      final heap = Heap<int>(
+      final heap = Heap<num>(
         elements: [1, 3, 2, 8],
         priority: Priority.min,
       );
@@ -243,7 +243,7 @@ void main() {
     });
 
     test('indexOf with min index', () {
-      final heap = Heap<int>(
+      final heap = Heap<num>(
         elements: [1, 1, 2, 8],
         priority: Priority.min,
       );
