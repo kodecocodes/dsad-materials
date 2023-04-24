@@ -9,7 +9,7 @@ void main() {
   challengeTwo();
 }
 
-/// Challenge 1: Additional properties
+/// Challenge 1: Additional Properties
 ///
 /// The current implementation of `StringTrie` is missing some notable
 /// operations. Your task for this challenge is to augment the current
@@ -33,7 +33,7 @@ void challengeOne() {
   print(trie.isEmpty);
 }
 
-/// Challenge 2: Generic trie
+/// Challenge 2: Generic Trie
 ///
 /// The trie data structure can be used beyond strings. Make a new class
 /// named `Trie` that handles any iterable collection. Implement the `insert`,

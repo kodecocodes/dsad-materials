@@ -70,7 +70,7 @@ class Trie<E, T extends Iterable<E>> {
     }
     for (final child in node.children.values) {
       final newPrefix = prefix.toList();
-      newPrefix.add(child!.key!);
+      newPrefix.add(child!.key as E);
       results.addAll(
         _moreMatches(
           newPrefix,

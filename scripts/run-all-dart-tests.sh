@@ -27,6 +27,7 @@ echo ========= Chapter 11 ==========
 (cd ../11-avl-trees/projects/final; dart test)
 
 echo ========= Chapter 12 ==========
+(cd ../12-tries/projects/challenge; dart test)
 (cd ../12-tries/projects/final; dart test)
 
 echo ========= Chapter 13 ==========
