@@ -39,6 +39,7 @@ echo ========= Chapter 14 ==========
 (cd ../14-heaps/projects/final; dart test)
 
 echo ========= Chapter 15 ==========
+(cd ../15-priority-queues/projects/challenge; dart test)
 (cd ../15-priority-queues/projects/final; dart test)
 
 echo ========= Chapter 16 ==========
