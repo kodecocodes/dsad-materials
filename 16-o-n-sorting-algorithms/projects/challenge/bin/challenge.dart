@@ -17,10 +17,10 @@ void main() {
 /// Work out by hand the steps that a bubble sort would perform on
 /// this list.
 void challengeOne() {
-  bubbleSort([4, 2, 5, 1, 3]);
+  bubbleSort(<num>[4, 2, 5, 1, 3]);
 }
 
-void bubbleSort<E extends Comparable<dynamic>>(List<E> list) {
+void bubbleSort<E extends Comparable<E>>(List<E> list) {
   print('\n--- BUBBLE SORT ---\n');
   print('$list // start\n');
   for (var end = list.length - 1; end > 0; end--) {
@@ -56,10 +56,10 @@ extension SwappableList<E> on List<E> {
 /// Work out by hand the steps that a selection sort would perform on
 /// this list.
 void challengeTwo() {
-  selectionSort([4, 2, 5, 1, 3]);
+  selectionSort(<num>[4, 2, 5, 1, 3]);
 }
 
-void selectionSort<E extends Comparable<dynamic>>(List<E> list) {
+void selectionSort<E extends Comparable<E>>(List<E> list) {
   print('\n--- SELECTION SORT ---\n');
   print('$list // start\n');
   for (var current = 0; current < list.length - 1; current++) {
@@ -96,10 +96,10 @@ void selectionSort<E extends Comparable<dynamic>>(List<E> list) {
 /// Work out by hand the steps that an **insertion sort** would take to sort
 /// this list.
 void challengeThree() {
-  insertionSort([4, 2, 5, 1, 3]);
+  insertionSort(<num>[4, 2, 5, 1, 3]);
 }
 
-void insertionSort<E extends Comparable<dynamic>>(List<E> list) {
+void insertionSort<E extends Comparable<E>>(List<E> list) {
   print('\n--- INSERTION SORT ---\n');
   print('$list // start\n');
   for (var current = 1; current < list.length; current++) {
@@ -125,7 +125,7 @@ void insertionSort<E extends Comparable<dynamic>>(List<E> list) {
 /// Are bubble sort, selection sort and insertion sort still O(n²)?
 /// How do the algorithms take shortcuts to finish more quickly?
 void challengeFour() {
-  bubbleSort([1, 2, 3, 4, 5]);
-  selectionSort([1, 2, 3, 4, 5]);
-  insertionSort([1, 2, 3, 4, 5]);
+  bubbleSort(<num>[1, 2, 3, 4, 5]);
+  selectionSort(<num>[1, 2, 3, 4, 5]);
+  insertionSort(<num>[1, 2, 3, 4, 5]);
 }

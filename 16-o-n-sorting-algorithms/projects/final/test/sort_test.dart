@@ -18,19 +18,19 @@ void main() {
 
   group('Bubble sort:', () {
     test('empty list', () {
-      final list = <int>[];
+      final list = <num>[];
       bubbleSort(list);
-      expect(list, <int>[]);
+      expect(list, <num>[]);
     });
 
     test('chapter example', () {
-      final list = [9, 4, 10, 3];
+      final list = <num>[9, 4, 10, 3];
       bubbleSort(list);
       expect(list, [3, 4, 9, 10]);
     });
 
     test('challenge example', () {
-      final list = [4, 2, 5, 1, 3];
+      final list = <num>[4, 2, 5, 1, 3];
       bubbleSort(list);
       expect(list, [1, 2, 3, 4, 5]);
     });
@@ -38,19 +38,19 @@ void main() {
 
   group('Selection sort:', () {
     test('empty list', () {
-      final list = <int>[];
+      final list = <num>[];
       selectionSort(list);
-      expect(list, <int>[]);
+      expect(list, <num>[]);
     });
 
     test('chapter example', () {
-      final list = [9, 4, 10, 3];
+      final list = <num>[9, 4, 10, 3];
       selectionSort(list);
       expect(list, [3, 4, 9, 10]);
     });
 
     test('challenge example', () {
-      final list = [4, 2, 5, 1, 3];
+      final list = <num>[4, 2, 5, 1, 3];
       selectionSort(list);
       expect(list, [1, 2, 3, 4, 5]);
     });
@@ -58,19 +58,19 @@ void main() {
 
   group('Insertion sort:', () {
     test('empty list', () {
-      final list = <int>[];
+      final list = <num>[];
       insertionSort(list);
-      expect(list, <int>[]);
+      expect(list, <num>[]);
     });
 
     test('chapter example', () {
-      final list = [9, 4, 10, 3];
+      final list = <num>[9, 4, 10, 3];
       insertionSort(list);
       expect(list, [3, 4, 9, 10]);
     });
 
     test('challenge example', () {
-      final list = [4, 2, 5, 1, 3];
+      final list = <num>[4, 2, 5, 1, 3];
       insertionSort(list);
       expect(list, [1, 2, 3, 4, 5]);
     });

@@ -3,7 +3,7 @@
 
 import 'swap.dart';
 
-void bubbleSort<E extends Comparable<dynamic>>(List<E> list) {
+void bubbleSort<E extends Comparable<E>>(List<E> list) {
   for (var end = list.length - 1; end > 0; end--) {
     var swapped = false;
     for (var current = 0; current < end; current++) {
