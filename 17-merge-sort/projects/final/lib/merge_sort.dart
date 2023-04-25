@@ -1,7 +1,7 @@
 // Copyright (c) 2023 Kodeco Inc.
 // For full license & permission details, see LICENSE.
 
-List<E> mergeSort<E extends Comparable<dynamic>>(List<E> list) {
+List<E> mergeSort<E extends Comparable<E>>(List<E> list) {
   if (list.length < 2) return list;
 
   final middle = list.length ~/ 2;
@@ -11,7 +11,7 @@ List<E> mergeSort<E extends Comparable<dynamic>>(List<E> list) {
   return _merge(left, right);
 }
 
-List<E> _merge<E extends Comparable<dynamic>>(
+List<E> _merge<E extends Comparable<E>>(
   List<E> listA,
   List<E> listB,
 ) {

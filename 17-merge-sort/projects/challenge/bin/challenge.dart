@@ -9,7 +9,7 @@ void main() {
   challengeTwo();
 }
 
-/// Challenge 1: Mind merge
+/// Challenge 1: Mind Merge
 ///
 /// Given the following list:
 ///
@@ -22,12 +22,12 @@ void main() {
 void challengeOne() {
   // See the lib/merge_sort_1.dart source code for the placement of the
   // `print` statements.
-  final list = [4, 2, 5, 1, 3];
+  final list = <num>[4, 2, 5, 1, 3];
   final sorted = challenge1.mergeSort(list);
   print(sorted);
 }
 
-/// Challenge 2: Merge two sequences
+/// Challenge 2: Merge Two Sequences
 ///
 /// In this chapter you created a `_merge` function that merges two
 /// sorted lists. The challenge here is to generalize `_merge` so that
@@ -35,14 +35,14 @@ void challengeOne() {
 /// function signature to start off:
 ///
 /// ```
-/// List<E> _merge<E extends Comparable<dynamic>>(
+/// List<E> _merge<E extends Comparable<E>>(
 ///   Iterable<E> first,
 ///   Iterable<E> second,
 /// )
 /// ```
 void challengeTwo() {
   // See lib/merge_sort_2.dart for the source code.
-  final list = [7, 2, 6, 3, 9];
+  final list = <num>[7, 2, 6, 3, 9];
   final sorted = challenge2.mergeSort(list);
   print(sorted);
 }

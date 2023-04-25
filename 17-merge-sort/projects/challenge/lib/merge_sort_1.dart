@@ -1,4 +1,4 @@
-List<E> mergeSort<E extends Comparable<dynamic>>(List<E> list) {
+List<E> mergeSort<E extends Comparable<E>>(List<E> list) {
   if (list.length < 2) {
     print('recursion ending:  $list');
     return list;
@@ -15,7 +15,7 @@ List<E> mergeSort<E extends Comparable<dynamic>>(List<E> list) {
   return merged;
 }
 
-List<E> _merge<E extends Comparable<dynamic>>(
+List<E> _merge<E extends Comparable<E>>(
   List<E> listA,
   List<E> listB,
 ) {
