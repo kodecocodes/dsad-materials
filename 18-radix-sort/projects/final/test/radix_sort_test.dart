@@ -21,7 +21,7 @@ void main() {
     });
   });
 
-  group('List extentions:', () {
+  group('List extensions:', () {
     test('maxDigits', () {
       final list = [1, 10, 100, 1000, 10];
       expect(list.maxDigits(), 4);

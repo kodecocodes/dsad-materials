@@ -68,7 +68,7 @@ int uniqueCharacters(List<String> words) {
 ///
 /// Your current implementation of `radixSort` would take 18 rounds, 14 of
 /// which are completely unnecessary. How could you optimize radix sort
-/// for cases where a single number is much larger than the others.
+/// for cases where a single number is much larger than the others?
 void challengeThree() {
   // Run this code to see the number of rounds that both versions of
   // the algorithm take.
