@@ -1,7 +1,7 @@
 // Copyright (c) 2023 Kodeco Inc.
 // For full license & permission details, see LICENSE.
 
-List<E> quicksortNaive<E extends Comparable<dynamic>>(
+List<E> quicksortNaive<E extends Comparable<E>>(
   List<E> list,
 ) {
   if (list.length < 2) return list;
@@ -31,7 +31,7 @@ extension Swappable<E> on List<E> {
   }
 }
 
-void quicksortLomuto<E extends Comparable<dynamic>>(
+void quicksortLomuto<E extends Comparable<E>>(
   List<E> list,
   int low,
   int high,
@@ -42,8 +42,8 @@ void quicksortLomuto<E extends Comparable<dynamic>>(
   quicksortLomuto(list, pivotIndex + 1, high);
 }
 
-int _partitionLomuto<T extends Comparable<dynamic>>(
-  List<T> list,
+int _partitionLomuto<E extends Comparable<E>>(
+  List<E> list,
   int low,
   int high,
 ) {
@@ -61,7 +61,7 @@ int _partitionLomuto<T extends Comparable<dynamic>>(
   return pivotIndex;
 }
 
-void quicksortHoare<E extends Comparable<dynamic>>(
+void quicksortHoare<E extends Comparable<E>>(
   List<E> list,
   int low,
   int high,
@@ -72,8 +72,8 @@ void quicksortHoare<E extends Comparable<dynamic>>(
   quicksortHoare(list, leftHigh + 1, high);
 }
 
-int _partitionHoare<T extends Comparable<dynamic>>(
-  List<T> list,
+int _partitionHoare<E extends Comparable<E>>(
+  List<E> list,
   int low,
   int high,
 ) {
@@ -97,7 +97,7 @@ int _partitionHoare<T extends Comparable<dynamic>>(
   }
 }
 
-void quicksortMedian<E extends Comparable<dynamic>>(
+void quicksortMedian<E extends Comparable<E>>(
   List<E> list,
   int low,
   int high,
@@ -110,8 +110,8 @@ void quicksortMedian<E extends Comparable<dynamic>>(
   quicksortLomuto(list, pivotIndex + 1, high);
 }
 
-int _medianOfThree<T extends Comparable<dynamic>>(
-  List<T> list,
+int _medianOfThree<E extends Comparable<E>>(
+  List<E> list,
   int low,
   int high,
 ) {
@@ -128,7 +128,7 @@ int _medianOfThree<T extends Comparable<dynamic>>(
   return center;
 }
 
-void quicksortDutchFlag<E extends Comparable<dynamic>>(
+void quicksortDutchFlag<E extends Comparable<E>>(
   List<E> list,
   int low,
   int high,
@@ -145,8 +145,8 @@ class Range {
   final int high;
 }
 
-Range _partitionDutchFlag<T extends Comparable<dynamic>>(
-  List<T> list,
+Range _partitionDutchFlag<E extends Comparable<E>>(
+  List<E> list,
   int low,
   int high,
 ) {

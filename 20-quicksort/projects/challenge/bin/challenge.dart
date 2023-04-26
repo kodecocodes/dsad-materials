@@ -14,12 +14,12 @@ void main() {
 /// Your challenge here is to implement it iteratively. Choose any
 /// partition strategy.
 void challengeOne() {
-  final list = [8, 2, 10, 0, 9, 18, 9, -1, 5];
+  final list = <num>[8, 2, 10, 0, 9, 18, 9, -1, 5];
   quicksortIterativeLomuto(list);
   print(list);
 }
 
-/// Challenge 2: Merge sort or Quicksort
+/// Challenge 2: Merge Sort or Quicksort
 ///
 /// Explain when and why you would use merge sort over quicksort.
 void challengeTwo() {

@@ -3,7 +3,7 @@
 
 import 'stack.dart';
 
-void quicksortIterativeLomuto<E extends Comparable<dynamic>>(
+void quicksortIterativeLomuto<E extends Comparable<E>>(
   List<E> list,
 ) {
   var stack = Stack<int>();
@@ -27,8 +27,8 @@ void quicksortIterativeLomuto<E extends Comparable<dynamic>>(
   }
 }
 
-int _partitionLomuto<T extends Comparable<dynamic>>(
-  List<T> list,
+int _partitionLomuto<E extends Comparable<E>>(
+  List<E> list,
   int low,
   int high,
 ) {

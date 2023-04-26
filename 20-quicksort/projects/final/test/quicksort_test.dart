@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 void main() {
   group('Quicksort:', () {
     test('Naive', () {
-      var list = <int>[];
+      var list = <num>[];
       list = quicksortNaive(list);
       expect(list, <int>[]);
 
@@ -21,7 +21,7 @@ void main() {
     });
 
     test('Lomuto', () {
-      var list = <int>[];
+      var list = <num>[];
       quicksortLomuto(list, 0, list.length - 1);
       expect(list, <int>[]);
 
@@ -35,7 +35,7 @@ void main() {
     });
 
     test('Hoare', () {
-      var list = <int>[];
+      var list = <num>[];
       quicksortHoare(list, 0, list.length - 1);
       expect(list, <int>[]);
 
@@ -49,7 +49,7 @@ void main() {
     });
 
     test('Median', () {
-      var list = <int>[];
+      var list = <num>[];
       quicksortMedian(list, 0, list.length - 1);
       expect(list, <int>[]);
 
@@ -63,7 +63,7 @@ void main() {
     });
 
     test('Dutch flag', () {
-      var list = <int>[];
+      var list = <num>[];
       quicksortDutchFlag(list, 0, list.length - 1);
       expect(list, <int>[]);
 
