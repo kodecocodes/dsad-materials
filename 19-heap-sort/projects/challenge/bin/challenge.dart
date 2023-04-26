@@ -17,7 +17,7 @@ void main() {
 ///
 /// You can assume that the implementation uses a max-heap.
 void challengeOne() {
-  var list = [5, 4, 3, 2, 1];
+  var list = <num>[5, 4, 3, 2, 1];
   print(list);
   list.heapsortInPlace();
   print(list);
@@ -37,9 +37,9 @@ void challengeTwo() {
 }
 
 void usingReversed() {
-  print('using reveresed');
+  print('using reversed');
 
-  final list = [6, 12, 2, 26, 8, 18, 21, 9, 5];
+  final list = <num>[6, 12, 2, 26, 8, 18, 21, 9, 5];
   final ascending = heapsort(list);
   final descending = ascending.reversed;
 
@@ -51,7 +51,7 @@ void usingReversed() {
 void reimplementingHeapsort() {
   print('reimplementing heapsort');
 
-  final list = [6, 12, 2, 26, 8, 18, 21, 9, 5];
+  final list = <num>[6, 12, 2, 26, 8, 18, 21, 9, 5];
   final sorted = descendingHeapsort(list);
 
   print(sorted);
@@ -60,7 +60,7 @@ void reimplementingHeapsort() {
 void reimplementingHeapsortInPlace() {
   print('reimplementing heapsortInPlace');
 
-  final list = [6, 12, 2, 26, 8, 18, 21, 9, 5];
+  final list = <num>[6, 12, 2, 26, 8, 18, 21, 9, 5];
   list.descendingHeapsortInPlace();
 
   print(list);

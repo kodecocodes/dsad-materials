@@ -3,7 +3,7 @@
 
 import 'heap.dart';
 
-List<E> heapsort<E extends Comparable<dynamic>>(List<E> list) {
+List<E> heapsort<E extends Comparable<E>>(List<E> list) {
   final heap = Heap<E>(
     elements: list.toList(),
     priority: Priority.min,
@@ -19,7 +19,7 @@ List<E> heapsort<E extends Comparable<dynamic>>(List<E> list) {
 
 /// This implementation adds print statements so that you can observe the
 /// comparisons that it makes while building the heap and sorting the list.
-extension Heapsort<E extends Comparable<dynamic>> on List<E> {
+extension Heapsort<E extends Comparable<E>> on List<E> {
   void heapsortInPlace() {
     if (isEmpty) return;
 

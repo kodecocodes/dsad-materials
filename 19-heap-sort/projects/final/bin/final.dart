@@ -9,12 +9,12 @@ void main() {
 }
 
 void heapsortUsingHeap() {
-  final sorted = heapsort([6, 12, 2, 26, 8, 18, 21, 9, 5]);
+  final sorted = heapsort<num>([6, 12, 2, 26, 8, 18, 21, 9, 5]);
   print(sorted);
 }
 
 void inPlaceHeapsort() {
-  final list = [6, 12, 2, 26, 8, 18, 21, 9, 5];
+  final list = <num>[6, 12, 2, 26, 8, 18, 21, 9, 5];
   print(list);
   list.heapsortInPlace();
   print(list);
