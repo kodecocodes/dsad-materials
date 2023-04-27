@@ -82,5 +82,14 @@ void main() {
       final buffer = RingBuffer<int>(4);
       expect(buffer.read(), isNull);
     });
+
+    test('toString contains no infinite loop', () {
+      final buffer = RingBuffer<int>(5);
+      buffer.write(1);
+      buffer.write(2);
+      buffer.write(3);
+      buffer.read();
+      expect(buffer.toString(), '[2, 3]');
+    });
   });
 }
