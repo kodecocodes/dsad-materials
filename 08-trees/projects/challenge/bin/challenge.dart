@@ -9,7 +9,7 @@ void main() {
   challengeTwo();
 }
 
-/// Challenge 1: Print a tree in level order
+/// Challenge 1: Print a Tree in Level Order
 ///
 /// Print all the values in a tree in an order based on their level. Nodes
 /// in the same level should be printed on the same line. For example,
@@ -75,7 +75,7 @@ void printEachLevel<T>(TreeNode<T> tree) {
   print(result);
 }
 
-/// Challenge 2: Widget tree
+/// Challenge 2: Widget Tree
 ///
 /// Flutter calls the nodes in its user-facing UI tree **widgets**. You can
 /// make a mini-version of the same thing.

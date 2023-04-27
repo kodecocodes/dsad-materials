@@ -11,7 +11,7 @@ void main() {
   whereToGoFromHereChallenge();
 }
 
-/// Challenge 1: Find the middle node
+/// Challenge 1: Find the Middle Node
 ///
 /// Create a function that finds the middle node of a linked list.
 /// For example:
@@ -44,7 +44,7 @@ Node<E>? getMiddle<E>(LinkedList<E> list) {
   return slow;
 }
 
-/// Challenge 2: Reverse a linked list
+/// Challenge 2: Reverse a Linked List
 ///
 /// Create a function that reverses a linked list. You do this by
 /// manipulating the nodes so that they’re linked in the other direction.
@@ -92,7 +92,7 @@ extension ReversibleLinkedList<E> on LinkedList<E> {
   }
 }
 
-/// Challenge 3: Remove all occurrences
+/// Challenge 3: Remove All Occurrences
 ///
 /// Create a function that removes all occurrences of a specific element
 /// from a linked list. The implementation is similar to the removeAfter

@@ -11,7 +11,7 @@ void main() {
   challengeThree();
 }
 
-/// Challenge 1: Number of leaves
+/// Challenge 1: Number of Leaves
 ///
 /// How many **leaf** nodes are there in a perfectly balanced tree of
 /// height 3? What about a perfectly balanced tree of height `h`?
@@ -26,7 +26,7 @@ int leafNodes(int height) {
   return math.pow(2, height).toInt();
 }
 
-/// Challenge 2: Number of nodes
+/// Challenge 2: Number of Nodes
 ///
 /// How many **nodes** are there in a perfectly balanced tree of height 3?
 /// What about a perfectly balanced tree of height `h`?
@@ -48,7 +48,7 @@ int nodesFasterSolution(int height) {
   return math.pow(2, height + 1).toInt() - 1;
 }
 
-/// Challenge 3: A tree traversal interface
+/// Challenge 3: A Tree Traversal Interface
 ///
 /// Since there are many variants of binary trees, it makes sense to group
 /// shared functionality in an interface. The traversal methods are a good

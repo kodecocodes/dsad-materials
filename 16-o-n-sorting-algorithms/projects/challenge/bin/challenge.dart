@@ -8,7 +8,7 @@ void main() {
   challengeFour();
 }
 
-/// Challenge 1: Bubble up
+/// Challenge 1: Bubble Up
 ///
 /// Here's a list of randomly distributed elements:
 ///
@@ -47,7 +47,7 @@ extension SwappableList<E> on List<E> {
   }
 }
 
-/// Challenge 2: Select the right one
+/// Challenge 2: Select the Right One
 ///
 /// Given the same list as above:
 ///
@@ -87,7 +87,7 @@ void selectionSort<E extends Comparable<E>>(List<E> list) {
   }
 }
 
-/// Challenge 3: Insert here
+/// Challenge 3: Insert Here
 ///
 /// Again, using the same initial list as in the previous challenges:
 ///
@@ -116,7 +116,7 @@ void insertionSort<E extends Comparable<E>>(List<E> list) {
   }
 }
 
-/// Challenge 4: Already sorted
+/// Challenge 4: Already Sorted
 ///
 /// When you have a list that's already sorted like the following:
 ///

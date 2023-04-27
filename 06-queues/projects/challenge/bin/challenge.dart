@@ -19,7 +19,7 @@ void challengeOne() {
   // See written explanation in the Challenge Solutions chapter.
 }
 
-/// Challenge 2: Step-by-step Diagrams
+/// Challenge 2: Step-by-Step Diagrams
 ///
 /// Given the following queue where the left is the front of the queue and
 /// the right is the back:
@@ -71,7 +71,7 @@ void enqueueDequeue(Queue<String> queue) {
   queue.enqueue('T');
 }
 
-/// Challenge 3: Whose turn is it?
+/// Challenge 3: Whose Turn Is It?
 ///
 /// Imagine that you are playing a game of Monopoly with your friends. The
 /// problem is that everyone always forgets whose turn it is! Create a
@@ -110,7 +110,7 @@ extension BoardGameManager<E> on QueueRingBuffer<E> {
   }
 }
 
-/// Challenge 4: Double-ended Queue
+/// Challenge 4: Double-Ended Queue
 ///
 /// A doubled-ended queue — a.k.a. **deque** — is, as its name suggests, a
 /// queue where elements can be added or removed from the front or back.

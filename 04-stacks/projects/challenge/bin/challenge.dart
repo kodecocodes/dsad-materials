@@ -30,7 +30,7 @@ void printInReverse<E>(List<E> list) {
   }
 }
 
-/// Challenge 2: Balance the parentheses
+/// Challenge 2: Balance the Parentheses
 ///
 /// Check for balanced parentheses. Given a string, check if there are `(`
 /// and `)` characters, and return `true` if the parentheses in the string

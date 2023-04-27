@@ -10,7 +10,7 @@ void main() {
   challengeThree();
 }
 
-/// Challenge 1: Binary tree or binary search tree?
+/// Challenge 1: Binary Tree or Binary Search Tree?
 ///
 /// Write a function that checks if a binary tree is a binary search tree.
 void challengeOne() {
@@ -78,7 +78,7 @@ bool _isEqual(BinaryNode? first, BinaryNode? second) {
       _isEqual(first.rightChild, second.rightChild);
 }
 
-/// Challenge 3: Is it a subtree?
+/// Challenge 3: Is it a Subtree?
 ///
 /// Create a method that checks if the current tree contains all the
 /// elements of another tree.

@@ -7,7 +7,7 @@ void main() {
   challengeOne();
 }
 
-/// Challenge 1: Graph your friends
+/// Challenge 1: Graph Your Friends
 ///
 /// Megan has three friends: Sandra, Pablo and Edith. Pablo has friends
 /// as well: Ray, Luke, and a mutual friend of Megan's. Edith is friends

@@ -9,7 +9,7 @@ void main() {
   challengeTwo();
 }
 
-/// Challenge 1:
+/// Challenge 1: Dijkstra Step-by-Step
 ///
 /// Given the following graph, step through Dijkstra’s algorithm yourself
 /// to produce the shortest path to every other vertex starting from vertex A.
@@ -43,7 +43,7 @@ Graph<String> createGraph() {
   return graph;
 }
 
-/// Challenge 2: Find all the shortest paths
+/// Challenge 2: Find All the Shortest Paths
 ///
 /// Add an extension on `Dijkstra` that returns all the shortest paths in
 /// list form from a given starting vertex. Here’s the method signature to

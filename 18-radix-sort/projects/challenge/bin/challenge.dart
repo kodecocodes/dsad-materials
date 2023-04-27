@@ -9,7 +9,7 @@ void main() {
   challengeThree();
 }
 
-/// Challenge 1: What are in the buckets?
+/// Challenge 1: What Are in the Buckets?
 ///
 /// Add a `print` statement to your `radixSort` implementation so that it'll
 /// tell you what's in the buckets after each round of sorting.
@@ -32,7 +32,7 @@ void challengeOne() {
   list.lexicographicalSort();
 }
 
-/// Challenge 2: Unique characters
+/// Challenge 2: Unique Characters
 ///
 /// Write a function that returns the total number of unique characters used
 /// in a list of words.

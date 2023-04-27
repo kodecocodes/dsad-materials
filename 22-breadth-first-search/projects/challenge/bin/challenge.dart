@@ -11,7 +11,7 @@ void main() {
   challengeThree();
 }
 
-/// Challenge 1: Maximum queue size
+/// Challenge 1: Maximum Queue Size
 ///
 /// For the following undirected graph, list the **maximum** number of
 /// items ever in the queue. Assume that the starting vertex is **A**.

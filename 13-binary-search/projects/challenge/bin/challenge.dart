@@ -76,7 +76,7 @@ void challengeTwo() {
   print('Found at index $index');
 }
 
-/// Challenge 3: Searching for a range
+/// Challenge 3: Searching for a Range
 ///
 /// Write a function that searches a sorted list and finds the range of
 /// indices for a particular element. You can start by creating a class
