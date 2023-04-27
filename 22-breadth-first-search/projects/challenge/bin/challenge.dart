@@ -79,7 +79,7 @@ extension QueuePrintingBfs<E> on Graph<E> {
 
 /// Challenge 2: Iterative BFS
 ///
-/// In this chapter, you create an iterative implementation of
+/// In this chapter, you created an iterative implementation of
 /// breadth-first search. Now write a recursive solution.
 void challengeTwo() {
   final graph = AdjacencyList<String>();
