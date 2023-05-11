@@ -4,7 +4,7 @@
 import 'linked_list.dart';
 import 'ring_buffer.dart';
 
-abstract class Queue<E> {
+abstract interface class Queue<E> {
   bool enqueue(E element);
   E? dequeue();
   bool get isEmpty;

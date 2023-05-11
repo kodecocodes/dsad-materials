@@ -13,7 +13,7 @@ class Node<T> {
   }
 }
 
-abstract class LinkedList<E> {
+abstract interface class LinkedList<E> {
   Node<E>? head;
   Node<E>? tail;
   bool get isEmpty;

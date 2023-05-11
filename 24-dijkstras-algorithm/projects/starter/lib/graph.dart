@@ -28,7 +28,7 @@ class Edge<T> {
 
 enum EdgeType { directed, undirected }
 
-abstract class Graph<E> {
+abstract interface class Graph<E> {
   Iterable<Vertex<E>> get vertices;
 
   Vertex<E> createVertex(E data);

@@ -133,7 +133,7 @@ extension BoardGameManager<E> on QueueRingBuffer<E> {
 ///   back,
 /// }
 ///
-/// abstract class Deque<E> {
+/// abstract interface class Deque<E> {
 ///   bool get isEmpty;
 ///   E? peek(Direction from);
 ///   bool enqueue(E element, Direction to);
