@@ -117,7 +117,7 @@ void challengeThree() {
   print(list);
 }
 
-extension RemovableLinkedList<E> on LinkedList {
+extension RemovableLinkedList<E> on LinkedList<E> {
   void removeAll(E value) {
     while (head != null && head!.value == value) {
       head = head!.next;

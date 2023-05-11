@@ -69,7 +69,10 @@ bool treesEqual(BinarySearchTree first, BinarySearchTree second) {
   return _isEqual(first.root, second.root);
 }
 
-bool _isEqual(BinaryNode? first, BinaryNode? second) {
+bool _isEqual<T>(
+  BinaryNode<Comparable<T>>? first,
+  BinaryNode<Comparable<T>>? second,
+) {
   if (first == null || second == null) {
     return first == null && second == null;
   }
@@ -101,9 +104,9 @@ void challengeThree() {
   print(tree.containsSubtree(otherTree));
 }
 
-extension Subtree<E> on BinarySearchTree {
+extension Subtree<E extends Comparable<E>> on BinarySearchTree<E> {
   bool containsSubtree(BinarySearchTree subtree) {
-    Set set = <E>{};
+    final set = <E>{};
     root?.traverseInOrder((value) {
       set.add(value);
     });

@@ -31,8 +31,8 @@ class TreeNode<T> {
     }
   }
 
-  TreeNode? search(T value) {
-    TreeNode? result;
+  TreeNode<T>? search(T value) {
+    TreeNode<T>? result;
     forEachLevelOrder((node) {
       if (node.value == value) {
         result = node;

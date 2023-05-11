@@ -4,7 +4,7 @@
 import 'priority_queue.dart';
 import 'graph.dart';
 
-class Pair<T> extends Comparable<Pair<T>> {
+class Pair<T> implements Comparable<Pair<T>> {
   Pair(this.distance, [this.vertex]);
 
   double distance;

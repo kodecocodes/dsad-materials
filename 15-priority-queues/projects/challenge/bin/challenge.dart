@@ -36,7 +36,7 @@ void challengeOne() {
   }
 }
 
-class Person extends Comparable<Person> {
+class Person implements Comparable<Person> {
   Person({
     required this.name,
     required this.age,

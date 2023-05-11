@@ -47,7 +47,7 @@ BinaryNode<int> createBinaryTree() {
   return n15;
 }
 
-int height(BinaryNode? node) {
+int height(BinaryNode<int>? node) {
   if (node == null) return -1;
   return 1 + max(height(node.leftChild), height(node.rightChild));
 }
