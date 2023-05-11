@@ -23,6 +23,11 @@ echo ========= Chapter 6 ==========
 (cd ../06-queues/projects/starter; dart pub get)
 (cd ../06-queues/projects/challenge; dart pub get)
 
+echo ========= Chapter 7 ==========
+(cd ../07-recursion/projects/final; dart pub get)
+(cd ../07-recursion/projects/starter; dart pub get)
+(cd ../07-recursion/projects/challenge; dart pub get)
+
 echo ========= Chapter 8 ==========
 (cd ../08-trees/projects/final; dart pub get)
 (cd ../08-trees/projects/starter; dart pub get)

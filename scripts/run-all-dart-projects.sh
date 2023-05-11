@@ -23,6 +23,11 @@ dart run ../06-queues/projects/challenge/bin/challenge.dart
 dart run ../06-queues/projects/final/bin/final.dart
 dart run ../06-queues/projects/starter/bin/starter.dart
 
+echo ========= Chapter 7 ==========
+dart run ../07-recursion/projects/challenge/bin/challenge.dart
+dart run ../07-recursion/projects/final/bin/final.dart
+dart run ../07-recursion/projects/starter/bin/starter.dart
+
 echo ========= Chapter 8 ==========
 dart run ../08-trees/projects/challenge/bin/challenge.dart
 dart run ../08-trees/projects/final/bin/final.dart
