@@ -83,13 +83,62 @@ void main() {
       expect(buffer.read(), isNull);
     });
 
+    // https://github.com/kodecocodes/dsad-materials/pull/8
     test('toString contains no infinite loop', () {
-      final buffer = RingBuffer<int>(5);
+      final buffer = RingBuffer<int>(3);
       buffer.write(1);
       buffer.write(2);
       buffer.write(3);
       buffer.read();
       expect(buffer.toString(), '[2, 3]');
+
+      final rb = RingBuffer<String>(3);
+      rb.write('Ray');
+      rb.write('Brian');
+      rb.write('Noah');
+      expect(rb.read(), 'Ray');
+      expect(rb.toString(), '[Brian, Noah]');
+    });
+
+// https://github.com/kodecocodes/dsad-materials/pull/8
+    test('toString not empty when read and write index equal', () {
+      final rb = RingBuffer<String>(3);
+      rb.write('Ray');
+      rb.write('Brian');
+      rb.write('Noah');
+      expect(rb.toString(), '[Ray, Brian, Noah]');
+    });
+
+    test('toString variations', () {
+      var buffer = RingBuffer<int>(3);
+      expect(buffer.toString(), '[]');
+
+      buffer.write(1);
+      expect(buffer.toString(), '[1]');
+
+      buffer.write(2);
+      expect(buffer.toString(), '[1, 2]');
+
+      buffer.write(3);
+      expect(buffer.toString(), '[1, 2, 3]');
+
+      buffer.read();
+      expect(buffer.toString(), '[2, 3]');
+
+      buffer.write(4);
+      expect(buffer.toString(), '[2, 3, 4]');
+
+      buffer.read();
+      expect(buffer.toString(), '[3, 4]');
+
+      buffer.read();
+      expect(buffer.toString(), '[4]');
+
+      buffer.read();
+      expect(buffer.toString(), '[]');
+
+      buffer.read();
+      expect(buffer.toString(), '[]');
     });
   });
 }

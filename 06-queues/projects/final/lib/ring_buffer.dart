@@ -20,9 +20,7 @@ class RingBuffer<E> {
     _size++;
   }
 
-  int _advance(int index) {
-    return (index == _list.length - 1) ? 0 : index + 1;
-  }
+  int _advance(int index) => (index + 1) % _list.length;
 
   E? read() {
     if (isEmpty) return null;
@@ -38,13 +36,12 @@ class RingBuffer<E> {
   String toString() {
     final text = StringBuffer();
     text.write('[');
-    int index = _readIndex;
-    while (index != _writeIndex) {
+    for (int i = 0; i < _size; i++) {
+      final index = (_readIndex + i) % _list.length;
       if (index != _readIndex) {
         text.write(', ');
       }
-      text.write(_list[index % _list.length]);
-      index++;
+      text.write(_list[index]);
     }
     text.write(']');
     return text.toString();
